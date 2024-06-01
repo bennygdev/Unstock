@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Unstock</title>
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/globalStyles.css">
+    <link rel="stylesheet" href="css/navigationStyles/navigationStyles.css">
+    <link rel="stylesheet" href="css/navigationStyles/offcanvasStyles.css">
+    <link rel="stylesheet" href="css/pageStyles/termsofserviceStyles.css">
+    <link rel="stylesheet" href="css/navigationStyles/navigationSearchSuggestions.css">
+</head>
+<body>
+    <!-- Navbar -->
+  <nav class="main__navbar">
+    <div class="nav__left">
+      <a href='index.html'><img src="media/unstocklogo_withLogoIcon_orange.png" id="nav__logo" class="nav__logo"></a>
+
+      <!-- Search functionality -->
+      <div class="nav__search-container">
+        <input type="text" id="nav__search-bar" class="nav__search-bar" placeholder="Search..." autocomplete="off">
+        <i class="fa-solid fa-magnifying-glass nav__search-button" id="nav__search-button"></i>
+        <div id="search__suggestions" class="search__suggestions"></div>
+      </div>
+    </div>
+
+    <!-- Navigation links -->
+    <ul class="nav__links">
+      <li><a data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu" class="nav__link nav__hamburger-menu nav__mobile"><i class="fa-solid fa-bars"></i></a></li>
+      <li><a class='nav__link nav__desktop' href='index.html'>Home</a></li>
+      <li><a class='nav__link nav__desktop' href='search.html'>Search</a></li>
+      <li><a class='nav__link nav__desktop' href='explore.html'>Explore</a></li>
+      <li><a class='nav__link nav__desktop' href='jointheteam.html'>Join the team</a></li>
+      <li><a class='nav__link nav__desktop' href='saved.html'>Saved</a></li>
+    </ul>
+  </nav>
+
+  <!-- Offcanvas menu -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenu">
+    <div class="offcanvas-header">
+      <img src="media/unstocklogo_withLogoIcon_orange.png" class="offcanvas-logo" alt="">
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="offcanvas-nav">
+        <li><a class='nav__link' href='index.html'>Home</a></li>
+        <li><a class='nav__link' href='search.html'>Search</a></li>
+        <li><a class='nav__link' href='explore.html'>Explore</a></li>
+        <li><a class='nav__link' href='jointheteam.html'>Join the team</a></li>
+        <li><a class='nav__link' href='saved.html'>Saved</a></li>
+      </ul>
+      <div class="offcanvas-nav__extra">
+        <a href="privacypolicy.html"><p>Privacy Policy</p></a>
+        <a href="termsofservice.html"><p>Terms of service</p></a>
+        <a href="license.html"><p>License</p></a>
+        <p>&copy; Unstock 2024</p>
+      </div>
+    </div>
+  </div>
+    
+    <h1>Terms of Service</h1>
+
+
+
+    <!-- Custom Written JS -->
+    <script src="js/navigation/stickyNavbar.js"></script>
+    <script src="js/searchRedirect/searchRedirect.js"></script>
+    <script src="js/searchSuggestions/navigationStoreSearches.js"></script>
+    <script src="js/searchSuggestions/navigationSearchSuggestions.js"></script>
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/c6f6d08f7b.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

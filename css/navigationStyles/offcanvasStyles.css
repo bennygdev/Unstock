@@ -1,0 +1,36 @@
+/* Offcanvas menu */
+.offcanvas-logo {
+  width: 140px;
+}
+
+.offcanvas-body {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.offcanvas-nav {
+  list-style-type: none;
+  font-size: 1.4rem;
+  padding: 0;
+}
+
+.offcanvas-nav a {
+  display: block;
+  color: #000;
+}
+
+.offcanvas-nav__extra {
+  margin-top: auto;
+  font-size: 0.8rem;
+  line-height: 0.7em;
+  opacity: 0.8;
+}
+
+.offcanvas-nav__extra a {
+  color: #808080;
+}
+
+.offcanvas-nav .offcanvas__link--active {
+  color: #FF8500;
+}

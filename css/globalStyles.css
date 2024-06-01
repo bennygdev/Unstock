@@ -1,0 +1,47 @@
+/* Import fonts */
+@font-face {
+  font-family: "OpenSansRegular";
+  src: url(../fonts/Open_Sans/static/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "OpenSansSemibold";
+  src: url(../fonts/Open_Sans/static/OpenSans-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "OpenSansBold";
+  src: url(../fonts/Open_Sans/static/OpenSans-Bold.ttf);
+}
+
+/* Declaring main variable colours */
+:root {
+  
+}
+
+/* Overwriting Bootstrap CSS variables */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.accordion {
+  --bs-accordion-active-bg: #ffe5e5;
+  --bs-accordion-active-color: #2d4059;
+  --bs-accordion-btn-focus-border-color: #ea5455;
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(234, 84, 84, 0.409);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FFF;
+  font-family: "OpenSansSemibold";
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}

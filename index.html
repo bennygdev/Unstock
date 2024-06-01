@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unstock | Home</title>
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/globalStyles.css">
+    <link rel="stylesheet" href="css/navigationStyles/homeNavigationStyles.css">
+    <link rel="stylesheet" href="css/navigationStyles/offcanvasStyles.css">
+    <link rel="stylesheet" href="css/pageStyles/homeStyles.css">
+    <link rel="stylesheet" href="css/footer/footerStyles.css">
+</head>
+<body>
+  <!-- Hero section -->
+  <section class="hero__section">
+    <!-- Navbar -->
+    <nav class="main__navbar">
+      <div class="nav__left">
+        <a href='index.html'><img src="media/unstocklogo_withLogoIcon_white.png" id="nav__logo" class="nav__logo"></a>
+
+        <!-- Scrolled Nav search bar -->
+        <div class="nav__search-container">
+          <input type="text" id="nav__search-bar" class="nav__search-bar" placeholder="Search..." autocomplete="off">
+          <i class="fa-solid fa-magnifying-glass nav__search-button" id="nav__search-button"></i>
+        </div>
+      </div>
+
+      <!-- Navigation links -->
+      <ul class="nav__links">
+        <li><a data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu" class="nav__link nav__hamburger-menu nav__mobile"><i class="fa-solid fa-bars"></i></a></li>
+        <li><a class='nav__link nav__link--active nav__desktop' href='index.html'>Home</a></li>
+        <li><a class='nav__link nav__desktop' href='search.html'>Search</a></li>
+        <li><a class='nav__link nav__desktop' href='explore.html'>Explore</a></li>
+        <li><a class='nav__link nav__desktop' href='jointheteam.html'>Join the team</a></li>
+        <li><a class='nav__link nav__desktop' href='saved.html'>Saved</a></li>
+      </ul>
+    </nav>
+
+    <!-- Offcanvas menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenu">
+      <div class="offcanvas-header">
+        <img src="media/unstocklogo_withLogoIcon_orange.png" class="offcanvas-logo" alt="">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="offcanvas-nav">
+          <li><a class='nav__link offcanvas__link--active' href='index.html'>Home</a></li>
+          <li><a class='nav__link' href='search.html'>Search</a></li>
+          <li><a class='nav__link' href='explore.html'>Explore</a></li>
+          <li><a class='nav__link' href='jointheteam.html'>Join the team</a></li>
+          <li><a class='nav__link' href='saved.html'>Saved</a></li>
+        </ul>
+        <div class="offcanvas-nav__extra">
+          <!-- <p>Privacy Policy | Terms of service | License</p> -->
+          <a href="privacypolicy.html"><p>Privacy Policy</p></a>
+          <a href="termsofservice.html"><p>Terms of service</p></a>
+          <a href="license.html"><p>License</p></a>
+          <p>&copy; Unstock 2024</p>
+        </div>
+      </div>
+    </div>
+
+    <img src="media/pexels-padurarul-340981.jpg" id="hero__image" alt="">
+    <div id="overlay"></div>
+
+    <!-- Home search bar -->
+    <div class="hero__content">
+      <h1>Explore the best stock images, shared by creators.</h1>
+      <div class="hero__trending-wrapper">
+        <!-- <span class="hero__trending-label">Trending:</span> -->
+        <div class="hero__topic-container" id="hero__topic-animals"><i class="fa-solid fa-arrow-trend-up"></i><span>Animals</span></div>
+        <div class="hero__topic-container" id="hero__topic-nature"><i class="fa-solid fa-arrow-trend-up"></i><span>Nature</span></div>
+        <div class="hero__topic-container" id="hero__topic-travel"><i class="fa-solid fa-arrow-trend-up"></i><span>Travel</span></div>
+        <div class="hero__topic-container" id="hero__topic-hiking"><i class="fa-solid fa-arrow-trend-up"></i><span>Hiking</span></div>
+      </div>  
+      <div class="hero__search-container">
+          <input type="text" id="hero__search-bar" class="hero__search-bar" placeholder="Search for free images..." autocomplete="off">
+          <i class="fa-solid fa-magnifying-glass fa-lg hero__search-button" id="hero__search-button"></i>
+          <div id="search__suggestions" class="search__suggestions"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image gallery -->
+  <main class="images__gallery">
+    <div class="row">
+      <h2 id="images__gallery-title">Popular images</h2>
+      <div class="column" id="image__container-1"></div>
+      <div class="column" id="image__container-2"></div>
+      <div class="column" id="image__container-3"></div>
+    </div>
+  
+    <div id="load-more-container">
+      <button id="load-more-button">Load More</button>
+    </div>
+  </main>
+
+  <!-- The Modal -->
+  <div id="imageModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="photographer-name" class="photographer-name"></div>
+      <img id="modal-image" src="" alt="">
+      <a id="download-button" class="download-button" download>Download</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-column left-column">
+        <div class="logo-quote">
+          <img src="media/unstocklogo_withLogoIcon_white.png  " alt="Logo" class="footer-logo">
+          <span class="footer-quote">Your inspiring quote here.</span>
+        </div>
+        <div class="footer-search">
+          <input type="text" placeholder="Search...">
+          <button type="submit">Search</button>
+        </div>
+        <div class="social-icons">
+          <a href="#" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-twitter"></a>
+          <a href="#" class="fa fa-instagram"></a>
+          <a href="#" class="fa fa-linkedin"></a>
+        </div>
+      </div>
+      <div class="footer-column right-column">
+        <div class="link-columns">
+          <div class="link-column">
+            <h4>Links</h4>
+            <ul class="footer-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div class="link-column">
+            <h4>More Links</h4>
+            <ul class="footer-links">
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr id="footer__divider">
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <ul class="footer-bottom-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">License</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom-right">
+        <p>&copy; Unstock 2024</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Custom Written JS -->
+  <script src="js/loadImages/loadCuratedImages.js"></script>
+  <script src="js/searchRedirect/homeSearchRedirect.js"></script>
+  <script src="js/searchSuggestions/heroStoreSearches.js"></script>
+  <script src="js/searchSuggestions/navigationStoreSearches.js"></script>
+  <script src="js/navigation/homeStickyNavbar.js"></script>
+  <script src="js/searchSuggestions/heroSearchSuggestions.js"></script>
+
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/c6f6d08f7b.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
