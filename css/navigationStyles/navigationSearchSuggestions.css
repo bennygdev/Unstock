@@ -67,3 +67,7 @@
 #trending__historyLabel-icon {
   margin-left: 0px;
 }
+
+.focused {
+  display: block;
+}
