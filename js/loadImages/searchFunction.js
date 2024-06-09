@@ -163,10 +163,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Function to show the modal with the clicked image
   function showModal(imageSrc, photographerName) {
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modal-image");
+    const modal = document.getElementById("image__modal");
+    const modalImg = document.getElementById("modal__image");
     const downloadButton = document.getElementById("download-button");
-    const photographerElement = document.getElementById("photographer-name");
+    const photographerElement = document.getElementById("image__photographer--name");
 
     modalImg.src = imageSrc;
     photographerElement.textContent = `Photographer: ${photographerName}`;
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   // Get the modal element
-  const modal = document.getElementById('imageModal');
+  const modal = document.getElementById('image__modal');
 
   // Get the <span> element that closes the modal
   const span = document.getElementsByClassName('close')[0];

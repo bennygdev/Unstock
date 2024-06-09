@@ -5,60 +5,72 @@ footer {
   padding: 20px 7%;
 }
 
-.footer-top {
+.footer__top {
   display: flex;
   justify-content: space-between;
   padding: 20px;
 }
 
-.footer-column {
+.footer__column {
   flex: 1;
   padding: 0 20px;
 }
 
-.left-column .logo-quote {
+.left-column .logo__wrapper {
   display: flex;
   align-items: center;
 }
 
-.footer-logo {
+.footer__logo {
   max-width: 140px;
   margin-right: 10px;
 }
 
-.footer-quote {
+.footer__logo--quote {
   font-size: 0.8em;
 }
 
-.footer-search {
+.footer__search-container {
   margin-top: 20px;
+  position: relative;
+  display: inline-block;
+  width: 35vw;
 }
 
-.footer-search input {
-  padding: 5px;
-  width: calc(100% - 80px);
-  margin-right: 10px;
-}
-
-.footer-search button {
-  padding: 5px 10px;
-  background-color: #555;
-  color: #fff;
+.footer__search-bar {
+  width: 100%;
+  padding: 8px 40px 8px 10px;
+  border-radius: 4px;
   border: none;
-  cursor: pointer;
+  background-color: #e5e5e5;
 }
 
-.social-icons {
+.footer__search-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #808080;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.footer__search-button:hover {
+  color: #FF8500;
+  transition: 0.2s ease;
+}
+
+.footer__social--icons {
   margin-top: 20px;
 }
 
-.social-icons a {
+.footer__social--icons a {
   color: #fff;
   margin-right: 10px;
   text-decoration: none;
 }
 
-.social-icons a:hover {
+.footer__social--icons a:hover {
   color: #ddd;
 }
 
@@ -70,37 +82,37 @@ footer {
   margin-bottom: 10px;
 }
 
-.link-columns {
+.link__columns {
   display: flex;
 }
 
-.link-column {
+.link__column {
   margin-left: 20px;
 }
 
-.link-column h4 {
+.link__column h4 {
   margin-bottom: 10px;
 }
 
-.footer-links {
+.footer__links {
   list-style-type: none;
   padding: 0;
 }
 
-.footer-links li {
+.footer__links li {
   margin-bottom: 5px;
 }
 
-.footer-links a {
+.footer__links a {
   color: #fff;
   text-decoration: none;
 }
 
-.footer-links a:hover {
+.footer__links a:hover {
   text-decoration: underline;
 }
 
-#footer__divider   {
+/* #footer__divider   {
   width: 81vw;
   display: flex;
   margin: 0 auto;
@@ -138,4 +150,4 @@ footer {
 
 .footer-bottom-right {
   text-align: right;
-}
+} */

@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="css/navigationStyles/homeNavigationStyles.css">
     <link rel="stylesheet" href="css/navigationStyles/offcanvasStyles.css">
     <link rel="stylesheet" href="css/pageStyles/homeStyles.css">
-    <link rel="stylesheet" href="css/navigationStyles/homeNavigationSearchSuggestions.css">
     <link rel="stylesheet" href="css/footer/footerStyles.css">
+    <link rel="stylesheet" href="css/components/modal.css">
 </head>
 <body>
   <!-- Hero section -->
@@ -99,39 +99,39 @@
   </main>
 
   <!-- The Modal -->
-  <div id="imageModal" class="modal">
-    <div class="modal-content">
+  <div id="image__modal" class="image__modal">
+    <div class="image__modal--content">
       <span class="close">&times;</span>
-      <div id="photographer-name" class="photographer-name"></div>
-      <img id="modal-image" src="" alt="">
+      <div id="image__photographer--name" class="image__photographer--name"></div>
+      <img id="modal__image" src="" alt="">
       <a id="download-button" class="download-button" download>Download</a>
     </div>
   </div>
 
   <!-- Footer -->
   <footer>
-    <div class="footer-top">
-      <div class="footer-column left-column">
-        <div class="logo-quote">
-          <img src="media/unstocklogo_withLogoIcon_white.png  " alt="Logo" class="footer-logo">
-          <span class="footer-quote">Your inspiring quote here.</span>
+    <div class="footer__top">
+      <div class="footer__column left-column">
+        <div class="logo__wrapper">
+          <img src="media/unstocklogo_withLogoIcon_white.png  " alt="Logo" class="footer__logo">
+          <span class="footer__logo--quote">Where images tell new stories, in every pixel.</span>
         </div>
-        <div class="footer-search">
-          <input type="text" placeholder="Search...">
-          <button type="submit">Search</button>
+        <div class="footer__search-container">
+          <input type="text" id="footer__search-bar" class="footer__search-bar" placeholder="Search..." autocomplete="off">
+          <i class="fa-solid fa-magnifying-glass footer__search-button" id="footer__search-button"></i>
         </div>
-        <div class="social-icons">
+        <div class="footer__social--icons">
           <a href="#" class="fa fa-facebook"></a>
           <a href="#" class="fa fa-twitter"></a>
           <a href="#" class="fa fa-instagram"></a>
           <a href="#" class="fa fa-linkedin"></a>
         </div>
       </div>
-      <div class="footer-column right-column">
-        <div class="link-columns">
-          <div class="link-column">
+      <div class="footer__column right-column">
+        <div class="link__columns">
+          <div class="link__column">
             <h4>Links</h4>
-            <ul class="footer-links">
+            <ul class="footer__links">
               <li><a href="#">Home</a></li>
               <li><a href="#">About</a></li>
               <li><a href="#">Services</a></li>
@@ -139,9 +139,9 @@
               <li><a href="#">Blog</a></li>
             </ul>
           </div>
-          <div class="link-column">
+          <div class="link__column">
             <h4>More Links</h4>
-            <ul class="footer-links">
+            <ul class="footer__links">
               <li><a href="#">Privacy</a></li>
               <li><a href="#">Terms</a></li>
               <li><a href="#">FAQ</a></li>
@@ -152,7 +152,7 @@
         </div>
       </div>
     </div>
-    <hr id="footer__divider">
+    <!-- <hr id="footer__divider">
     <div class="footer-bottom">
       <div class="footer-bottom-left">
         <ul class="footer-bottom-links">
@@ -164,7 +164,7 @@
       <div class="footer-bottom-right">
         <p>&copy; Unstock 2024</p>
       </div>
-    </div>
+    </div> -->
   </footer>
 
 

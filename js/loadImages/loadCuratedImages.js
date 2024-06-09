@@ -42,10 +42,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Shows modal after image is clicked
   function showModal(imageSrc, photographerName) {
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modal-image");
+    const modal = document.getElementById("image__modal");
+    const modalImg = document.getElementById("modal__image");
     const downloadButton = document.getElementById("download-button");
-    const photographerElement = document.getElementById("photographer-name");
+    const photographerElement = document.getElementById("image__photographer--name");
 
     modalImg.src = imageSrc;
     photographerElement.textContent = `Photographer: ${photographerName}`;
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Load more images function
   document.getElementById('load-more-button').addEventListener('click', loadMoreImages);
 
-  const modal = document.getElementById('imageModal');
+  const modal = document.getElementById('image__modal');
   const span = document.getElementsByClassName('close')[0];
 
   span.onclick = function() {
