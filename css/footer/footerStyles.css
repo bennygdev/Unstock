@@ -1,8 +1,9 @@
 /* Footer styles */
 footer {
-  background-color: #333;
+  background-color: #eeeeee;
   color: #fff;
   padding: 20px 7%;
+  width: 100%;
 }
 
 .footer__top {
@@ -28,6 +29,8 @@ footer {
 
 .footer__logo--quote {
   font-size: 0.8em;
+  width: 200px;
+  color: black;
 }
 
 .footer__search-container {
@@ -42,7 +45,7 @@ footer {
   padding: 8px 40px 8px 10px;
   border-radius: 4px;
   border: none;
-  background-color: #e5e5e5;
+  background-color: #d4d4d4;
 }
 
 .footer__search-button {
@@ -65,13 +68,17 @@ footer {
 }
 
 .footer__social--icons a {
-  color: #fff;
+  color: #000;
   margin-right: 10px;
   text-decoration: none;
 }
 
 .footer__social--icons a:hover {
-  color: #ddd;
+  color: #FF8500;
+}
+
+.footer__column--left {
+  margin-right: 20px;
 }
 
 .right-column {
@@ -80,6 +87,12 @@ footer {
 }
 .right-column h4 {
   margin-bottom: 10px;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.link__columns h4 {
+  color: black;
 }
 
 .link__columns {
@@ -104,50 +117,84 @@ footer {
 }
 
 .footer__links a {
-  color: #fff;
+  color: #000;
   text-decoration: none;
 }
 
-.footer__links a:hover {
-  text-decoration: underline;
-}
-
-/* #footer__divider   {
-  width: 81vw;
+#footer__divider   {
+  width: 81.5vw;
   display: flex;
   margin: 0 auto;
+  color: #000;
 }
 
-.footer-bottom {
+.footer__bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 2.5%;
 }
 
-.footer-bottom-left {
+.footer__bottom--left {
   flex: 1;
 }
 
-.footer-bottom-links {
+.footer__bottom--links {
   list-style-type: none;
   padding: 0;
   display: flex;
 }
 
-.footer-bottom-links li {
+.footer__bottom--links li {
   margin-right: 20px;
 }
 
-.footer-bottom-links a {
-  color: #fff;
+.footer__bottom--links a {
+  color: #000;
   text-decoration: none;
 }
 
-.footer-bottom-links a:hover {
-  text-decoration: underline;
+.footer__bottom--right {
+  text-align: right;
+  color: #000;
 }
 
-.footer-bottom-right {
-  text-align: right;
-} */
+@media (max-width: 900px) {
+  .footer__top {
+    flex-direction: column;
+  }
+
+  .footer__column {
+    padding: 10px 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  .right-column {
+    justify-content: start;
+  }
+
+  .link__columns {
+    flex-direction: column;
+  }
+
+  .link__column {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  .footer__search-container {
+    width: 80%;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer__bottom--links {
+    flex-direction: column;
+  }
+}

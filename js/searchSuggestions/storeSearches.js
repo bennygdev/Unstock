@@ -29,3 +29,25 @@ document.querySelector('.nav__search-bar').addEventListener('keydown', function(
       }
     }
   });
+
+// Footer search bar button function
+document.querySelector('.footer__search-button').addEventListener('click', function() {
+  const query = document.querySelector('.footer__search-bar').value;
+  
+  // prevent blank search with if statement
+  if (query) {
+    storeSearches(query);
+  }
+});
+
+// Footer search bar enter function
+document.querySelector('.footer__search-bar').addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    const query = document.querySelector('.footer__search-bar').value;
+
+    // prevent blank search with if statement
+    if (query) {
+      storeSearches(query);
+    }
+  }
+});

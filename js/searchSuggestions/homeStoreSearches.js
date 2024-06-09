@@ -7,7 +7,7 @@ function storeSearches(query) {
     }
 }
 
-// search bar button function
+// Hero search bar button function
 document.querySelector('.hero__search-button').addEventListener('click', function() {
     const query = document.querySelector('.hero__search-bar').value;
     
@@ -17,7 +17,7 @@ document.querySelector('.hero__search-button').addEventListener('click', functio
     }
   });
 
-// search bar enter function
+// Hero search bar enter function
 document.querySelector('.hero__search-bar').addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
       const query = document.querySelector('.hero__search-bar').value;
@@ -27,4 +27,26 @@ document.querySelector('.hero__search-bar').addEventListener('keydown', function
         storeSearches(query);
       }
     }
+});
+
+// Footer search bar button function
+document.querySelector('.footer__search-button').addEventListener('click', function() {
+  const query = document.querySelector('.footer__search-bar').value;
+  
+  // prevent blank search with if statement
+  if (query) {
+    storeSearches(query);
+  }
+});
+
+// Footer search bar enter function
+document.querySelector('.footer__search-bar').addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    const query = document.querySelector('.footer__search-bar').value;
+
+    // prevent blank search with if statement
+    if (query) {
+      storeSearches(query);
+    }
+  }
 });

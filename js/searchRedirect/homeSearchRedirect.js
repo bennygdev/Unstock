@@ -50,3 +50,21 @@ document.querySelectorAll('.hero__topic-container').forEach(function(topicContai
   topicContainer.setAttribute('data-topic', topic);
   topicContainer.addEventListener('click', handleTrendingSearch);
 });
+
+// Footer search bar
+function handleFooterSearch() {
+  const searchBar = document.getElementById('footer__search-bar');
+  const query = searchBar.value;
+  if (query) {
+      window.location.href = `search.html?result=${encodeURIComponent(query)}`;
+  }
+}
+
+document.getElementById('footer__search-button').addEventListener('click', handleFooterSearch);
+
+
+document.getElementById('footer__search-bar').addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+      handleFooterSearch();
+  }
+});

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadMoreButton = document.getElementById('load-more-button');
     loadMoreButton.style.display = 'none';
 
-    // search bar button function
+    // navigation search bar button function
     document.querySelector('.nav__search-button').addEventListener('click', function() {
         const query = document.querySelector('.nav__search-bar').value;
         
@@ -21,10 +21,36 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // search bar enter function
+    // navigation search bar enter function
     document.querySelector('.nav__search-bar').addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
             const query = document.querySelector('.nav__search-bar').value;
+
+            // prevent blank search with if statement
+            if (query) {
+                searchImages(query);
+                updateURL(query);
+                displayRecentSearches();
+            }
+        }
+    });
+
+    //  footer search bar button function
+    document.querySelector('.footer__search-button').addEventListener('click', function() {
+        const query = document.querySelector('.footer__search-bar').value;
+        
+        // prevent blank search with if statement
+        if (query) {
+            searchImages(query);
+            updateURL(query);
+            displayRecentSearches();
+        }
+    });
+
+    //  footer search bar enter function
+    document.querySelector('.footer__search-bar').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            const query = document.querySelector('.footer__search-bar').value;
 
             // prevent blank search with if statement
             if (query) {

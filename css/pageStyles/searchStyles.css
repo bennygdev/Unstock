@@ -37,7 +37,7 @@
   display: block;
   justify-content: center;
   align-items: center;
-  height: 200px; /* Adjust as needed */
+  /* height: 200px; */ /* adjusted height so footer can fit */
   font-size: 1.5em;
   color: #333;
 }
@@ -54,7 +54,7 @@
   display: block;
   margin: 0 auto;
   width: 40vw;
-  height: 7vw;
+  /* height: 7vw; */
 }
 
 /* Label buttons  */
@@ -78,18 +78,16 @@
   /* background-color: #45a049; */
 }
 
-
-/* Clearfix for the columns */
 .row::after {
   content: "";
   clear: both;
   display: table;
 }
 
-/* Rest of your CSS remains unchanged */
 .images__gallery {
   margin-top: 80px;
-  padding: 30px 50px;
+  /* padding: 30px 50px; */
+  padding: 30px 50px 0px 50px;
 }
 
 #search__historyLabel-icon {
