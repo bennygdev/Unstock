@@ -48,6 +48,7 @@
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .hero__topic-container {
@@ -75,7 +76,7 @@
 .hero__search-container {
   position: relative;
   display: inline-block;
-  margin-left: 20px;
+  /* margin-left: 20px; */
   /* width: 35vw; */
   width: 40vw;
 }
