@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="css/pageStyles/savedStyles.css">
   <link rel="stylesheet" href="css/navigationStyles/navigationSearchSuggestions.css">
   <link rel="stylesheet" href="css/footer/footerStyles.css">
+  <link rel="stylesheet" href="css/components/modal.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -64,7 +65,40 @@
     </div>
   </div>
     
-  <h1>Saved</h1>
+  <!-- Saved Images Display -->
+  <main class="images__gallery">
+    <div class="row" id="saved__images">
+      <h2 id="images__gallery-title">Saved images</h2>
+      <div class="no-results-container">
+        <img src="media/empty_saves.png" id="no-results-image" alt="No saved images">
+        <p>No saved images. Explore more?</p>
+      </div>
+      <div class="column" id="image__container-1"></div>
+      <div class="column" id="image__container-2"></div>
+      <div class="column" id="image__container-3"></div>
+    </div>
+  </main>
+
+  <!-- The Modal -->
+  <div id="image__modal" class="image__modal">
+    <div class="image__modal--content">
+      <div class="modal-header">
+        <div class="header-left">
+          <div id="image__photographer--name" class="image__photographer--name nomobile"></div>
+          <!-- <i class="fa-regular fa-bookmark fa-2xl save mobile"></i> -->
+        </div>
+        <div class="header-right">
+          <i class="fa-regular fa-bookmark fa-2xl save nomobile"></i>
+          <a id="download-button" class="download-button" download>Download</a>
+          <i class="fa-solid fa-xmark fa-2xl close"></i>
+        </div>
+      </div>
+      <img id="modal__image" src="" alt="Image" data-photo-id="">
+      <div class="header-bottom">
+        <div id="image__photographer--name-bottom" class="image__photographer--name-bottom mobile"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer>
@@ -128,6 +162,7 @@
   <script src="js/searchRedirect/searchRedirect.js"></script>
   <script src="js/searchSuggestions/storeSearches.js"></script>
   <script src="js/searchSuggestions/navigationSearchSuggestions.js"></script>
+  <script src="js/loadImages/savedImages.js"></script>
 
   <!-- FontAwesome -->
   <script src="https://kit.fontawesome.com/c6f6d08f7b.js" crossorigin="anonymous"></script>
