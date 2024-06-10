@@ -96,11 +96,23 @@
 
   <!-- The Modal -->
   <div id="image__modal" class="image__modal">
+    <!-- <span class="close"><i class="fa-solid fa-xmark fa-xl"></i></span> -->
     <div class="image__modal--content">
-      <span class="close">&times;</span>
-      <div id="image__photographer--name" class="image__photographer--name"></div>
+      <div class="modal-header">
+        <div class="header-left">
+          <div id="image__photographer--name" class="image__photographer--name nomobile"></div>
+          <span class="save mobile"><i class="fa-regular fa-bookmark fa-2xl"></i></span>
+        </div>
+        <div class="header-right">
+          <span class="save nomobile"><i class="fa-regular fa-bookmark fa-2xl"></i></span>
+          <a id="download-button" class="download-button" download>Download</a>
+          <span class="close"><i class="fa-solid fa-xmark fa-2xl"></i></span>
+        </div>
+      </div>
       <img id="modal__image" src="" alt="">
-      <a id="download-button" class="download-button" download>Download</a>
+      <div class="header-bottom">
+        <div id="image__photographer--name-bottom" class="image__photographer--name-bottom mobile"></div>
+      </div>
     </div>
   </div>
 

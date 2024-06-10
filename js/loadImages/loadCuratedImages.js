@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
       img.alt = photo.photographer;
       img.id = `image-${index}`; // Set a unique ID for each image
       img.addEventListener('click', function() {
-        showModal(photo.src.large, photo.photographer, photo.src.original);
+        showModal(photo.src.original, photo.photographer);
       });
 
       // Determine which column to append the image to
@@ -41,18 +41,20 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Shows modal after image is clicked
-  function showModal(imageSrc, photographerName, originalImgSize) {
+  function showModal(imageSrc, photographerName) {
     const modal = document.getElementById("image__modal");
     const modalImg = document.getElementById("modal__image");
     const downloadButton = document.getElementById("download-button");
     const photographerElement = document.getElementById("image__photographer--name");
+    const photographerElementBottom = document.getElementById("image__photographer--name-bottom");
 
     modalImg.src = imageSrc;
-    originalSize = originalImgSize;
-    photographerElement.textContent = `Photographer: ${photographerName}`;
+
+    photographerElement.textContent = `By ${photographerName}`;
+    photographerElementBottom.textContent = `By ${photographerName}`;
 
     downloadButton.onclick = function () {
-      downloadImage(originalImgSize, photographerName);
+      downloadImage(imageSrc, photographerName);
     };
 
     modal.style.display = "block";

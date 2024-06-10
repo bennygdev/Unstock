@@ -140,13 +140,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
           if (data.photos && data.photos.length > 0) {
               // Loop through the photos and distribute them across the three columns
-              data.photos.forEach((photo, index, originalImgSize) => {
+              data.photos.forEach((photo, index) => {
                   const img = document.createElement('img');
                   img.src = photo.src.large;
                   img.alt = photo.photographer;
                   img.id = `image-${index}`; // Set a unique ID for each image
                     img.addEventListener('click', function() {
-                        showModal(photo.src.large, photo.photographer, photo.src.original);
+                        showModal(photo.src.original, photo.photographer);
                     });
 
                   if (index % 3 === 0) {
@@ -188,49 +188,48 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Function to show the modal with the clicked image
-  function showModal(imageSrc, photographerName, originalImgSize) {
+  function showModal(imageSrc, photographerName) {
     const modal = document.getElementById("image__modal");
     const modalImg = document.getElementById("modal__image");
     const downloadButton = document.getElementById("download-button");
     const photographerElement = document.getElementById("image__photographer--name");
 
     modalImg.src = imageSrc;
-    originalSize = originalImgSize;
-    photographerElement.textContent = `Photographer: ${photographerName}`;
+    photographerElement.textContent = `By ${photographerName}`;
 
     downloadButton.onclick = function () {
-      downloadImage(originalImgSize, photographerName);
+      downloadImage(imageSrc, photographerName);
     };
 
     modal.style.display = "block";
   }
 
-  // Downloads image of the url
-  function downloadImage(url, imageId) {
-    fetch(url)
-      .then((response) => response.blob())
-      .then((blob) => {
-        // Extract filename from URL
-        const filename = getFilenameFromUrl(url);
+    // Downloads image of the url
+    function downloadImage(url, imageId) {
+      fetch(url)
+        .then((response) => response.blob())
+        .then((blob) => {
+          // Extract filename from URL
+          const filename = getFilenameFromUrl(url);
 
-        // Create a link element, set its href and download attributes, and simulate a click
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = filename;
-        link.click();
-        URL.revokeObjectURL(link.href); // Clean up
-      })
-      .catch((error) => console.error("Error downloading the image:", error));
-  }
+          // Create a link element, set its href and download attributes, and simulate a click
+          const link = document.createElement("a");
+          link.href = URL.createObjectURL(blob);
+          link.download = filename;
+          link.click();
+          URL.revokeObjectURL(link.href); // Clean up
+        })
+        .catch((error) => console.error("Error downloading the image:", error));
+    }
 
-  // Gets filename from the url and passes it as the download name
-  function getFilenameFromUrl(url) {
-    // Extract filename from URL
-    const urlParts = url.split("/");
-    const lastSegment = urlParts[urlParts.length - 1];
-    const filename = lastSegment.split("?")[0]; // Remove query params if any
-    return filename;
-  }
+    // Gets filename from the url and passes it as the download name
+    function getFilenameFromUrl(url) {
+      // Extract filename from URL
+      const urlParts = url.split("/");
+      const lastSegment = urlParts[urlParts.length - 1];
+      const filename = lastSegment.split("?")[0]; // Remove query params if any
+      return filename;
+    }
 
 
   // Get the modal element
@@ -275,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   img.alt = photo.photographer;
                   img.id = `image-${index}`; // Set a unique ID for each image
                   img.addEventListener('click', function() {
-                      showModal(photo.src.large, photo.photographer, photo.src.original);
+                      showModal(photo.src.original, photo.photographer);
                   });
 
                   // Determine which column to append the image to
