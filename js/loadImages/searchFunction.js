@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const apiKey = 'gY7YL3TYC3zwSfPTln6WPnaKS4psOajcnKlg3a7HJlOj5NfXpzoFFoKJ';
 
   let currentPage = 1; // Track the current page of results
-  const perPage = 12; // Number of images per page
+  const perPage = 96; // Number of images per page
 
     // Hide the Load More button by default
     const loadMoreButton = document.getElementById('load-more-button');
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Search functioon for images
   function searchImages(query) {
-      const url = `https://api.pexels.com/v1/search?query=${query}&per_page=12`;
+      const url = `https://api.pexels.com/v1/search?query=${query}&per_page=${perPage}`;
 
       fetch(url, {
           headers: {

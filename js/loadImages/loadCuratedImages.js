@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   const apiKey = 'gY7YL3TYC3zwSfPTln6WPnaKS4psOajcnKlg3a7HJlOj5NfXpzoFFoKJ';  // Replace with your Pexels API key
   let currentPage = 1; // Track the current page of results
-  const perPage = 12; // Number of images per page
+  const perPage = 96; // Number of images per page
 
   fetchCuratedImages();
 

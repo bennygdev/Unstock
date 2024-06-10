@@ -8,6 +8,10 @@
   color: #808080;
 }
 
+#search__result {
+  font-family: OpenSansBold
+}
+
 /* Flexbox for centering the columns */
 .row {
   display: flex;
@@ -48,6 +52,8 @@
 
 .results-for {
   display: none; /* Hide by default */
+  margin-bottom: 20px;
+  font-size: 2em;
 }
 
 .label__wrapper {
@@ -96,6 +102,9 @@
 
 #image-container-1 img, #image-container-2 img, #image-container-3 img {
   padding-bottom: 10px;
+  min-height: 100px;
+  max-height: 600px;
+  object-fit: cover;
 }
 
 /* Load more images styling */
