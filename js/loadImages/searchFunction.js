@@ -138,16 +138,19 @@ document.addEventListener('DOMContentLoaded', function() {
           const noResultsContainer = document.querySelector('.no-results-container');
           const resultsSpan = document.getElementById("search__result");
 
+          // console.log(data)
+
           if (data.photos && data.photos.length > 0) {
               // Loop through the photos and distribute them across the three columns
               data.photos.forEach((photo, index) => {
                   const img = document.createElement('img');
                   img.src = photo.src.large;
                   img.alt = photo.photographer;
-                  img.id = `image-${index}`; // Set a unique ID for each image
-                    img.addEventListener('click', function() {
-                        showModal(photo.src.original, photo.photographer);
-                    });
+                  img.setAttribute('data-photo-id', photo.id);
+                  /*img.id = `image-${index}`; */ // Set a unique ID for each image
+                  img.addEventListener('click', function() {
+                    showModal(photo.src.original, photo.photographer, photo.id);
+                  });
 
                   if (index % 3 === 0) {
                       document.getElementById('image-container-1').appendChild(img);
@@ -158,11 +161,11 @@ document.addEventListener('DOMContentLoaded', function() {
                   }
               });
 
-               // Show the Load More button
-               loadMoreButton.style.display = 'block';
-               resultsFor.style.display = 'block';
-               resultsSpan.textContent = `${query}`;
-                noResultsContainer.style.display = 'none';
+              // Show the Load More button
+              loadMoreButton.style.display = 'block';
+              resultsFor.style.display = 'block';
+              resultsSpan.textContent = `${query}`;
+              noResultsContainer.style.display = 'none';
           } else {
               document.getElementById('image-container-1').innerHTML = 'No images found';
               document.getElementById('image-container-2').innerHTML = 'No images found';
@@ -188,48 +191,89 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Function to show the modal with the clicked image
-  function showModal(imageSrc, photographerName) {
+  function showModal(imageSrc, photographerName, photoId) {
     const modal = document.getElementById("image__modal");
     const modalImg = document.getElementById("modal__image");
     const downloadButton = document.getElementById("download-button");
     const photographerElement = document.getElementById("image__photographer--name");
+    const photographerElementBottom = document.getElementById("image__photographer--name-bottom");
+    const saveBookmark = document.querySelector('.save');
 
     modalImg.src = imageSrc;
     photographerElement.textContent = `By ${photographerName}`;
+    photographerElementBottom.textContent = `By ${photographerName}`;
 
     downloadButton.onclick = function () {
       downloadImage(imageSrc, photographerName);
     };
 
+    // Check if the photo is saved
+    const savedPhotos = JSON.parse(localStorage.getItem('savedPhotos')) || [];
+    if (savedPhotos.includes(photoId)) {
+      saveBookmark.classList.remove('fa-regular');
+      saveBookmark.classList.add('fa-solid');
+    } else {
+      saveBookmark.classList.remove('fa-solid');
+      saveBookmark.classList.add('fa-regular');
+    }
+
+    saveBookmark.onclick = function () {
+      // console.log('click')
+      toggleSave(photoId);
+    };
+
     modal.style.display = "block";
   }
 
-    // Downloads image of the url
-    function downloadImage(url, imageId) {
-      fetch(url)
-        .then((response) => response.blob())
-        .then((blob) => {
-          // Extract filename from URL
-          const filename = getFilenameFromUrl(url);
+  // Toggle save for an image
+  function toggleSave(photoId) {
+    const savedPhotos = JSON.parse(localStorage.getItem('savedPhotos')) || [];
 
-          // Create a link element, set its href and download attributes, and simulate a click
-          const link = document.createElement("a");
-          link.href = URL.createObjectURL(blob);
-          link.download = filename;
-          link.click();
-          URL.revokeObjectURL(link.href); // Clean up
-        })
-        .catch((error) => console.error("Error downloading the image:", error));
+    const index = savedPhotos.indexOf(photoId);
+    if (index === -1) {
+      savedPhotos.push(photoId);
+    } else {
+      savedPhotos.splice(index, 1);
     }
 
-    // Gets filename from the url and passes it as the download name
-    function getFilenameFromUrl(url) {
-      // Extract filename from URL
-      const urlParts = url.split("/");
-      const lastSegment = urlParts[urlParts.length - 1];
-      const filename = lastSegment.split("?")[0]; // Remove query params if any
-      return filename;
+    localStorage.setItem('savedPhotos', JSON.stringify(savedPhotos));
+
+    const saveBookmark = document.querySelector('.save');
+    if (index === -1) {
+      saveBookmark.classList.remove('fa-regular');
+      saveBookmark.classList.add('fa-solid');
+    } else {
+      saveBookmark.classList.remove('fa-solid');
+      saveBookmark.classList.add('fa-regular');
     }
+  }
+
+  // Downloads image of the url
+  function downloadImage(url, imageId) {
+    fetch(url)
+      .then((response) => response.blob())
+      .then((blob) => {
+        // Extract filename from URL
+        const filename = getFilenameFromUrl(url);
+
+        // Create a link element, set its href and download attributes, and simulate a click
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = filename;
+        link.click();
+        URL.revokeObjectURL(link.href); // Clean up
+      })
+      .catch((error) => console.error("Error downloading the image:", error));
+    }
+
+  // Gets filename from the url and passes it as the download name
+  function getFilenameFromUrl(url) {
+    // Extract filename from URL
+    const urlParts = url.split("/");
+    const lastSegment = urlParts[urlParts.length - 1];
+    const filename = lastSegment.split("?")[0]; // Remove query params if any
+    return filename;
+  }
 
 
   // Get the modal element

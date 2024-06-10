@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(data => {
       displayImages(data.photos);
+      // console.log(data)
     })
     .catch(error => console.error('Error fetching curated images:', error));
   }
@@ -29,9 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const img = document.createElement('img');
       img.src = photo.src.large;
       img.alt = photo.photographer;
-      img.id = `image-${index}`; // Set a unique ID for each image
+      /*img.id = `image-${index}`; */ // Set a unique ID for each image
+      img.setAttribute('data-photo-id', photo.id);
       img.addEventListener('click', function() {
-        showModal(photo.src.original, photo.photographer);
+        showModal(photo.src.original, photo.photographer, photo.id);
       });
 
       // Determine which column to append the image to
@@ -41,14 +43,16 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Shows modal after image is clicked
-  function showModal(imageSrc, photographerName) {
+  function showModal(imageSrc, photographerName, photoId) {
     const modal = document.getElementById("image__modal");
     const modalImg = document.getElementById("modal__image");
     const downloadButton = document.getElementById("download-button");
     const photographerElement = document.getElementById("image__photographer--name");
     const photographerElementBottom = document.getElementById("image__photographer--name-bottom");
+    const saveBookmark = document.querySelector('.save');
 
     modalImg.src = imageSrc;
+    modalImg.setAttribute('data-photo-id', photoId);
 
     photographerElement.textContent = `By ${photographerName}`;
     photographerElementBottom.textContent = `By ${photographerName}`;
@@ -57,7 +61,45 @@ document.addEventListener('DOMContentLoaded', function() {
       downloadImage(imageSrc, photographerName);
     };
 
+    // Check if the photo is saved
+    const savedPhotos = JSON.parse(localStorage.getItem('savedPhotos')) || [];
+    if (savedPhotos.includes(photoId)) {
+      saveBookmark.classList.remove('fa-regular');
+      saveBookmark.classList.add('fa-solid');
+    } else {
+      saveBookmark.classList.remove('fa-solid');
+      saveBookmark.classList.add('fa-regular');
+    }
+
+    saveBookmark.onclick = function () {
+      // console.log('click')
+      toggleSave(photoId);
+    };
+
     modal.style.display = "block";
+  }
+
+  // Toggle save for an image
+  function toggleSave(photoId) {
+    const savedPhotos = JSON.parse(localStorage.getItem('savedPhotos')) || [];
+
+    const index = savedPhotos.indexOf(photoId);
+    if (index === -1) {
+      savedPhotos.push(photoId);
+    } else {
+      savedPhotos.splice(index, 1);
+    }
+
+    localStorage.setItem('savedPhotos', JSON.stringify(savedPhotos));
+
+    const saveBookmark = document.querySelector('.save');
+    if (index === -1) {
+      saveBookmark.classList.remove('fa-regular');
+      saveBookmark.classList.add('fa-solid');
+    } else {
+      saveBookmark.classList.remove('fa-solid');
+      saveBookmark.classList.add('fa-regular');
+    }
   }
 
   // Downloads image of the url

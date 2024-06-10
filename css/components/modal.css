@@ -109,25 +109,34 @@
   margin-right: 30px;
 }
 
-.mobile {
+i.mobile, div.mobile {
   display: none;
 }
 
 @media (max-width: 768px) {
-  .mobile {
+  i.mobile, div.mobile {
     display: block;
   }
 
-  .save.mobile {
+  i.save.mobile {
     margin-left: 30px;
   }
 
-  .nomobile {
+  /* i.nomobile, div.nomobile {
+    display: none;
+  } */
+
+  div.nomobile {
     display: none;
   }
 
   #modal__image {
     width: 75%
+  }
+
+  .header-right i {
+    display: flex;
+    justify-content: flex-start;
   }
 
   .header-bottom {

@@ -127,6 +127,12 @@ nav {
 }
 
 /* Media Queries for navigation menu */
+@media (max-width: 1665px) {
+  .nav__search-container {
+    width: 50vw;
+  }
+}
+
 @media (max-width: 1500px) {
   .nav__search-container {
     width: 45vw;
