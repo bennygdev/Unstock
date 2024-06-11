@@ -5,88 +5,34 @@ document.addEventListener('DOMContentLoaded', function() {
   let currentPage = 1; // Track the current page of results
   const perPage = 96; // Number of images per page
 
-    // Hide the Load More button by default
-    const loadMoreButton = document.getElementById('load-more-button');
-    loadMoreButton.style.display = 'none';
+  const loadMoreButton = document.getElementById('load-more-button');
+  loadMoreButton.style.display = 'none';
 
-    // navigation search bar button function
-    document.querySelector('.nav__search-button').addEventListener('click', function() {
-        const query = document.querySelector('.nav__search-bar').value;
-        
-        // prevent blank search with if statement
-        if (query) {
-            searchImages(query);
-            updateURL(query);
-            displayRecentSearches();
-        }
-    });
+  // Takes the result from the URL and searches for the image based on the search query
+  function updateURL(query) {
+    const newURL = window.location.origin + window.location.pathname + '?result=' + encodeURIComponent(query);
+    window.history.pushState({path:newURL},'',newURL);
+  }
 
-    // navigation search bar enter function
-    document.querySelector('.nav__search-bar').addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            const query = document.querySelector('.nav__search-bar').value;
+  // Function to retrieve search query from URL
+  function getSearchQueryFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('result');
+  }
 
-            // prevent blank search with if statement
-            if (query) {
-                searchImages(query);
-                updateURL(query);
-                displayRecentSearches();
-            }
-        }
-    });
+  // Initial search query from URL, if available
+  const initialSearchQuery = getSearchQueryFromURL();
+  if (initialSearchQuery) {
+    document.querySelector('.nav__search-bar').value = initialSearchQuery;
+    searchImages(initialSearchQuery);
+  }
 
-    //  footer search bar button function
-    document.querySelector('.footer__search-button').addEventListener('click', function() {
-        const query = document.querySelector('.footer__search-bar').value;
-        
-        // prevent blank search with if statement
-        if (query) {
-            searchImages(query);
-            updateURL(query);
-            displayRecentSearches();
-        }
-    });
-
-    //  footer search bar enter function
-    document.querySelector('.footer__search-bar').addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            const query = document.querySelector('.footer__search-bar').value;
-
-            // prevent blank search with if statement
-            if (query) {
-                searchImages(query);
-                updateURL(query);
-                displayRecentSearches();
-            }
-        }
-    });
-
-    // Takes the result from the URL and searches for the image based on the search query
-    function updateURL(query) {
-        const newURL = window.location.origin + window.location.pathname + '?result=' + encodeURIComponent(query);
-        window.history.pushState({path:newURL},'',newURL);
-    }
-
-    // Function to retrieve search query from URL
-    function getSearchQueryFromURL() {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get('result');
-    }
-
-    // Initial search query from URL, if available
-    const initialSearchQuery = getSearchQueryFromURL();
-    if (initialSearchQuery) {
-        document.querySelector('.nav__search-bar').value = initialSearchQuery;
-        searchImages(initialSearchQuery);
-    }
-
-    // Function to display recent searches as buttons
+  // Function to display recent searches as buttons
   function displayRecentSearches() {
     const searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
     const labelWrapper = document.querySelector('.label__wrapper');
     const recentSearchesWrapper = document.querySelector('.recentSearches__wrapper');
   
-    // Clear any existing buttons
     labelWrapper.innerHTML = '';
   
     // Create buttons for each search term
@@ -96,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
       searchHistory.forEach(search => {
         const button = document.createElement('button');
         button.className = 'search__historyLabel-button';
-        // button.textContent = search;
         button.innerHTML = `${search} <i class="fa-solid fa-magnifying-glass" id="search__historyLabel-icon"></i>`;
         button.addEventListener('click', function() {
           searchImages(search);
@@ -114,12 +59,10 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   }
-  
 
-  // Display recent searches on page load
   displayRecentSearches();
 
-    // Search functioon for images
+  // Search function for images
   function searchImages(query) {
       const url = `https://api.pexels.com/v1/search?query=${query}&per_page=${perPage}`;
 
@@ -130,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .then(response => response.json())
       .then(data => {
-          // Clear any existing images
           document.getElementById('image-container-1').innerHTML = '';
           document.getElementById('image-container-2').innerHTML = '';
           document.getElementById('image-container-3').innerHTML = '';
@@ -146,8 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   const img = document.createElement('img');
                   img.src = photo.src.large;
                   img.alt = photo.photographer;
-                  img.setAttribute('data-photo-id', photo.id);
-                  /*img.id = `image-${index}`; */ // Set a unique ID for each image
+                  img.setAttribute('data-photo-id', photo.id); // set id for ech img
                   img.addEventListener('click', function() {
                     showModal(photo.src.original, photo.photographer, photo.id);
                   });
@@ -161,7 +102,6 @@ document.addEventListener('DOMContentLoaded', function() {
                   }
               });
 
-              // Show the Load More button
               loadMoreButton.style.display = 'block';
               resultsFor.style.display = 'block';
               resultsSpan.textContent = `${query}`;
@@ -171,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
               document.getElementById('image-container-2').innerHTML = 'No images found';
               document.getElementById('image-container-3').innerHTML = 'No images found';
 
-            // Hide the Load More button
             loadMoreButton.style.display = 'none';
             resultsFor.style.display = 'none';
             noResultsContainer.style.display = 'none';
@@ -294,8 +233,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   }
 
-    // Event listener for the "Load more" button
-    document.getElementById('load-more-button').addEventListener('click', loadMoreImages);
+  // Event listener for the "Load more" button
+  document.getElementById('load-more-button').addEventListener('click', loadMoreImages);
 
   // Function to load more images
   function loadMoreImages() {
@@ -341,4 +280,56 @@ document.addEventListener('DOMContentLoaded', function() {
           console.error('Error fetching more images:', error);
       });
   }
+
+  // navigation search bar button function
+  document.querySelector('.nav__search-button').addEventListener('click', function() {
+    const query = document.querySelector('.nav__search-bar').value;
+        
+    // prevent blank search with if statement
+    if (query) {
+      searchImages(query);
+      updateURL(query);
+      displayRecentSearches();
+    }
+  });
+
+  // navigation search bar enter function
+  document.querySelector('.nav__search-bar').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      const query = document.querySelector('.nav__search-bar').value;
+
+      // prevent blank search with if statement
+      if (query) {
+        searchImages(query);
+        updateURL(query);
+        displayRecentSearches();
+      }
+    }
+  });
+
+  // footer search bar button function
+  document.querySelector('.footer__search-button').addEventListener('click', function() {
+    const query = document.querySelector('.footer__search-bar').value;
+        
+    // prevent blank search with if statement
+    if (query) {
+      searchImages(query);
+      updateURL(query);
+      displayRecentSearches();
+    }
+  });
+
+  //  footer search bar enter function
+  document.querySelector('.footer__search-bar').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      const query = document.querySelector('.footer__search-bar').value;
+
+      // prevent blank search with if statement
+      if (query) {
+        searchImages(query);
+        updateURL(query);
+        displayRecentSearches();
+      }
+    }
+  });
 });

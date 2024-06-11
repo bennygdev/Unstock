@@ -15,8 +15,8 @@
 /* Flexbox for centering the columns */
 .row {
   display: flex;
-  justify-content: center; /* Center items horizontally */
-  flex-wrap: wrap; /* Allow items to wrap to next line */
+  justify-content: center;
+  flex-wrap: wrap;
   padding-left: 5%;
   padding-right: 5%;
 }
@@ -25,23 +25,21 @@
 .column {
   width: 33.2%;
   padding: 10px;
-  box-sizing: border-box; /* Ensure padding doesn't affect the width */
+  box-sizing: border-box;
 }
 
 .column img {
   width: 100%;
   height: auto;
   margin-bottom: 10px;
-  cursor: pointer; /* Add cursor pointer to indicate clickable */
+  cursor: pointer;
 }
 
 .no-results-container {
-  /* display: flex; */
   text-align: center;
   display: block;
   justify-content: center;
   align-items: center;
-  /* height: 200px; */ /* adjusted height so footer can fit */
   font-size: 1.5em;
   color: #333;
 }
@@ -51,7 +49,7 @@
 }
 
 .results-for {
-  display: none; /* Hide by default */
+  display: none;
   margin-bottom: 20px;
   font-size: 2em;
 }
@@ -60,18 +58,14 @@
   display: block;
   margin: 0 auto;
   width: 40vw;
-  /* height: 7vw; */
 }
 
 /* Label buttons  */
 .search__historyLabel-button {
-  /* background-color: #4CAF50;
-  color: white; */
   border: 1px solid #808080;
   background-color: transparent;
   color: #000;
   font-size: 0.7em;
-  /* border: none; */
   padding: 10px 15px;
   margin: 5px;
   cursor: pointer;
@@ -81,7 +75,6 @@
 
 .search__historyLabel-button:hover {
   transform: scale(1.04);
-  /* background-color: #45a049; */
 }
 
 .row::after {
@@ -92,7 +85,6 @@
 
 .images__gallery {
   margin-top: 80px;
-  /* padding: 30px 50px; */
   padding: 30px 50px 0px 50px;
 }
 
@@ -113,8 +105,6 @@
   margin: 0 auto;
   background-color: #000;
   color: white;
-  /* width: 8vw;
-  height: 2.5vw; */
   width: 140px;
   height: 45px;
   border-radius: 10px;

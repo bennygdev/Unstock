@@ -89,14 +89,9 @@
   font-size: 1.1em;
 }
 
-/* .hero__search-bar:focus {
-  border-radius: 8px 8px 0 0; 
-  outline: none;
-} */
-
 .hero__search-bar.focused {
-  border-radius: 8px 8px 0 0; /* Round top corners only */
-  outline: none; /* Remove default outline */
+  border-radius: 8px 8px 0 0;
+  outline: none;
 }
 
 .hero__search-button {
@@ -118,9 +113,9 @@
 .hero__search--suggestions {
   display: none;
   position: absolute;
-  top: 100%; /* Position below the search bar */
+  top: 100%;
   left: 0;
-  width: 100%; /* Inherit width from the search bar container */
+  width: 100%; 
   background-color: #ffffff;
   border: 1px solid #ccc;
   border-radius: 0 0 8px 8px;
@@ -188,9 +183,9 @@
 .nav__search--suggestions {
   display: none;
   position: absolute;
-  top: 100%; /* Position below the search bar */
+  top: 100%;
   left: 0;
-  width: 100%; /* Inherit width from the search bar container */
+  width: 100%;
   background-color: #ffffff;
   border: 1px solid #ccc;
   border-radius: 0 0 8px 8px;
@@ -227,8 +222,8 @@
 /* Image gallery styles */
 .row {
   display: flex;
-  justify-content: center; /* Center items horizontally */
-  flex-wrap: wrap; /* Allow items to wrap to next line */
+  justify-content: center;
+  flex-wrap: wrap;
   padding-left: 5%;
   padding-right: 5%;
 }
@@ -236,14 +231,14 @@
 .column {
   width: 33.2%;
   padding: 10px;
-  box-sizing: border-box; /* Ensure padding doesn't affect the width */
+  box-sizing: border-box;
 }
 
 .column img {
   width: 100%;
   height: auto;
   margin-bottom: 10px;
-  cursor: pointer; /* Add cursor pointer to indicate clickable */
+  cursor: pointer;
 }
 
 .row::after {

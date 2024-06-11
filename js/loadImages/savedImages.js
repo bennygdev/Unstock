@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
               showModal(photo.src.original, photo.photographer, photo.id);
             });
 
-            // Determine which column to append the image to using modulo
+            // Determine which column to append the image to using modulo based on localstorage index
             const columnIndex = index % 3;
             if (columnIndex === 0) {
               container1.appendChild(img);

@@ -27,6 +27,7 @@
   overflow: hidden;
 }
 
+/* Position close button outside of modal (Ignore this) */
 /* .close {
   position: absolute;
   top: 15px;
@@ -90,8 +91,8 @@
 
 #modal__image {
   max-width: 100%;
-  max-height: calc(100% - 100px); /* Account for header and margin */
-  object-fit: contain; /* Ensures the image scales proportionally */
+  max-height: calc(100% - 100px);
+  object-fit: contain;
   padding-left: 20px;
   padding-right: 20px;
   margin: 0 auto;

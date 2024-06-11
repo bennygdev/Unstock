@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const apiKey = 'gY7YL3TYC3zwSfPTln6WPnaKS4psOajcnKlg3a7HJlOj5NfXpzoFFoKJ';  // Replace with your Pexels API key
+  const apiKey = 'gY7YL3TYC3zwSfPTln6WPnaKS4psOajcnKlg3a7HJlOj5NfXpzoFFoKJ';
   let currentPage = 1; // Track the current page of results
   const perPage = 96; // Number of images per page
 
@@ -30,8 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const img = document.createElement('img');
       img.src = photo.src.large;
       img.alt = photo.photographer;
-      /*img.id = `image-${index}`; */ // Set a unique ID for each image
-      img.setAttribute('data-photo-id', photo.id);
+      img.setAttribute('data-photo-id', photo.id); // set id for each image
       img.addEventListener('click', function() {
         showModal(photo.src.original, photo.photographer, photo.id);
       });

@@ -36,8 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (scrollTop > heroSectionHeight && !isSticky) {
         navbar.classList.add("sticky");
         navbar.classList.remove("hidden");
-        // logo.src = "media/unstocklogo_withLogoIcon_orange.png";
-        //navLinks.forEach(link => link.style.color = "black");
         isSticky = true;
 
         // Show the search bar
@@ -51,8 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
         
         navbar.classList.remove("hidden");
         navbar.classList.remove("sticky");
-        // logo.src = "media/unstocklogo_withLogoIcon_white.png";
-        //navLinks.forEach(link => link.style.color = "");
         isSticky = false;
 
         // Hide the search bar
