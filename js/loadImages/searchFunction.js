@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
           document.getElementById('image-container-2').innerHTML = '';
           document.getElementById('image-container-3').innerHTML = '';
           const resultsFor = document.querySelector('.results-for');
+          const resultsDivider = document.getElementById('search__result--divider');
           const noResultsContainer = document.querySelector('.no-results-container');
           const resultsSpan = document.getElementById("search__result");
 
@@ -104,6 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
               loadMoreButton.style.display = 'block';
               resultsFor.style.display = 'block';
+              resultsDivider.style.display = 'block';
               resultsSpan.textContent = `${query}`;
               noResultsContainer.style.display = 'none';
           } else {
@@ -113,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             loadMoreButton.style.display = 'none';
             resultsFor.style.display = 'none';
+            resultsDivider.style.display = 'none';
             noResultsContainer.style.display = 'none';
           }
       })
@@ -125,6 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hide the Load More button
         loadMoreButton.style.display = 'none';
         resultsFor.style.display = 'none';
+        resultsDivider.style.display = 'none';
         noResultsContainer.style.display = 'flex';
       });
   }

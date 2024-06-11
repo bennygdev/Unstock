@@ -54,6 +54,17 @@
   font-size: 2em;
 }
 
+#search__result--divider {
+  display: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background-color: orange;
+  margin-bottom: 20px;
+  border: none;
+  opacity: 1; /* overwrite bootstrap default opacity */
+}
+
 .label__wrapper {
   display: block;
   margin: 0 auto;
