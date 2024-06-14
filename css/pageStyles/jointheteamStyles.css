@@ -20,11 +20,12 @@ body {
 /* left side of hero content */
 .hero__content--left {
   display: flex;
+  width: 40%;
   flex-direction: column;
   justify-content: center;
   height: 500px;
   /* padding: 0vw 5vw; */
-  margin-left: 7vw;
+  margin-left: 10vw;
 }
 
 .hero__content--left h1 {
@@ -62,8 +63,11 @@ body {
   position: relative;
   height: 500px;
   flex-direction: column;
+  /* display: flex; */
+  /* align-items: center; */
   overflow: hidden;
-  padding-right: 40vw;
+  width: 50%;
+  /* padding-left: 20vw; */
 }
 
 #ring__inner, #ring__outer {
@@ -82,7 +86,32 @@ body {
 }
 
 .imageFrames__wrapper {
-  z-index: 100;
+  z-index: 1;
+  position: relative;
+}
+
+#photo__frame--1 {
+  position: absolute;
+  width: 250px;
+  rotate: 8deg;
+  top: 360px;
+  left: 500px;
+}
+
+#photo__frame--2 {
+  position: absolute;
+  width: 130px;
+  rotate: 4deg;
+  top: 210px;
+  left: 270px;
+}
+
+#photo__frame--3 {
+  position: absolute;
+  width: 170px;
+  rotate: -5deg;
+  top: 415px;
+  left: 50px;
 }
 
 @keyframes spin {
@@ -93,4 +122,303 @@ body {
 @keyframes reverse-spin {
   0% { transform: rotate(360deg); }
   100% { transform: rotate(0deg); }
+}
+
+@media (max-width: 900px) {
+  .hero__section {
+    height: auto;
+  }
+
+  .hero__content {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .hero__content--left {
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    height: auto;
+    margin-right: 5vw;
+    margin-top: 60px;
+    /* padding: 0vw 5vw; */
+    /* margin-left: 5vw; */
+  }
+
+  .hero__content--left h1 {
+    text-align: center;
+    width: 95%;
+  }
+
+  .hero__content--left p {
+    width: 95%
+  }
+
+  #hero__button {
+    margin: 0 auto;
+  }
+
+  .hero__content--right {
+    position: relative;
+    /* height: 500px; */
+    flex-direction: column; 
+    overflow: hidden;
+    width: 100%;
+    /* padding-left: 20vw; */
+  }
+  
+  #ring__inner, #ring__outer {
+    position: absolute;
+    margin-top: 100px;
+    inset: 0;
+    /* width: 700px; */
+    /* margin-left: 7vw; */
+    /* margin-right: 7vw; */
+  }
+}
+
+/* Main section */
+main {
+  margin: 150px 40px 100px 40px;
+}
+
+/* Main - Reviews section */
+.main__whyJoinUs {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 250px;
+}
+
+.main__whyJoinUs h2 {
+  font-family: OpenSansBold;
+  margin-bottom: 20px;
+  font-size: 2.1em;
+}
+
+.main__whyJoinUs p {
+  margin-bottom: 20px;
+}
+
+.whyJoinUs__reviews {
+  display: flex;
+}
+
+.review__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25vw;
+  /* height: 300px; */
+  border-radius: 20px;
+  background-color: #fff;
+  border: 1px solid #ececec;
+  padding: 25px;
+  margin: 20px;
+}
+
+.review__blockquote {
+  width: 25px;
+  margin-bottom: 10px;
+}
+
+.review__container p {
+  font-size: 0.9em;
+  margin: 0 0 40px 0;
+}
+
+.review__container--footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: auto;
+}
+
+.footer__profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  line-height: 10px;
+}
+
+.footer__profile h4 {
+  font-size: 1.1em;
+  font-family: OpenSansBold;
+}
+
+.footer__profile p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #a5a5a5;
+}
+
+.footer__profile--image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+/* Main - Apparel section */
+.main__apparel {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 250px;
+}
+
+.main__apparel h2 {
+  font-family: OpenSansBold;
+  margin-bottom: 20px;
+  font-size: 2.1em;
+}
+
+.main__apparel p {
+  margin-bottom: 40px;
+}
+
+.apparel__wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.apparel__row1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.apparel__row2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.apparel__row1 .apparel__container {
+  margin-bottom: 20px;
+}
+
+.apparel__row2 .apparel__container {
+  margin-top: 20px;
+}
+
+.apparel__container {
+  width: 250px;
+  height: 200px;
+  background-color: #e4e4e4;
+  border-radius: 15px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.apparel__container--tour {
+  width: 550px;
+  height: 100%;
+  border-radius: 15px;
+  background-color: gray;
+  margin-left: 20px;
+}
+
+.apparel__container--body {
+  display: flex;
+  width: 100%;
+  height: 75%;
+  justify-content: center;
+  align-items: center;
+  /* background-image: url(../../media/UnstockShirt.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; */
+}
+
+#apparel__shirt {
+  width: 60%;
+  height: 90%;
+  object-fit: cover;
+}
+
+#apparel__mug {
+  width: 50%;
+  height: 90%;
+  object-fit: cover;
+}
+
+#apparel__totebag {
+  width: 40%;
+  height: 90%;
+  object-fit: cover;
+}
+
+#apparel__pin {
+  width: 60%;
+  height: 90%;
+  object-fit: cover;
+}
+
+#apparel__headquarters {
+  width: 100%;
+  /* height: 75%; */
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+}
+
+.apparel__container--footer {
+  display: flex;
+  width: 100%;
+  height: 25%;
+  justify-content: center;
+  align-items: center;
+  background-color: #CCCCCC;
+  border-radius: 0 0 15px 15px;
+}
+
+.apparel__container--footer p {
+  margin: 0;
+  font-family: OpenSansBold;
+  font-size: 0.9em;
+}
+
+.apparel__container--tour {
+  display: flex;
+  flex-direction: column;
+}
+
+.apparel__container--tourBody {
+  width: 100%;
+  height: 80%;
+}
+
+.apparel__container--tourFooter {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 20%;
+  justify-content: center;
+  align-items: center;
+  background-color: #ECECEC;
+  border-radius: 0 0 15px 15px;
+}
+
+.apparel__container--tourFooter h3 {
+  font-size: 1.3em;
+  font-family: OpenSansBold;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.apparel__container--tourFooter p {
+  font-size: 0.8em;
+  margin: 0;
+}
+
+/* work on media queries soon */
+@media (max-width: 900px) {
+  .apparel__wrapper {
+    flex-direction: column;
+  }
+
+
 }
