@@ -1,3 +1,358 @@
 body {
-    margin-top: 100px;
+  margin-top: 110px;
+}
+
+.explore__wrapper {
+  padding: 0vw 6.65vw;
+}
+
+#explore__title {
+  font-size: 2em;
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+#explore__divider {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background-color: orange;
+  margin-bottom: 30px;
+  margin-right: 20px;
+  border: none;
+  opacity: 1; /* overwrite bootstrap default opacity */
+}
+
+.trending__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+.trending__header h2 {
+  font-size: 1.6em;
+  margin: 0 0 0 10px;
+}
+
+.explore__container--wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+.explore__container--link {
+  text-decoration: none;
+  color: #000000;
+}
+
+.explore__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  background-color: lightgrey;
+  /* width: 17vw; */
+  width: 250px;
+  height: 180px;
+  margin-left: 35px;
+  margin-right: 35px;
+  margin-bottom: 40px;
+  border-radius: 15px;
+  transition: transform 0.2s ease;
+}
+
+.explore__link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.explore__container:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease
+}
+
+.explore__container--footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: #f3f3f3;
+  border-radius: 0 0 15px 15px;
+}
+
+.explore__container--footer h3 {
+  font-size: 1em;
+  font-family: OpenSansBold;
+  margin: 0 0 0 10px;
+}
+
+
+/* Background images for explore containers */
+#trending__animals {
+  background-image: url(../../media/exploreLabels/animals_label.jpg);
+  background-size: cover;
+}
+
+#trending__nature {
+  background-image: url(../../media/exploreLabels/nature_label.jpg);
+  background-size: cover;
+}
+
+#trending__travel {
+  background-image: url(../../media/exploreLabels/travel_label.jpg);
+  background-size: cover;
+}
+
+#trending__hiking {
+  background-image: url(../../media/exploreLabels/hiking_label.jpg);
+  background-size: cover;
+}
+
+#teamPicks__basketball {
+  background-image: url(../../media/exploreLabels/basketball_label.jpg);
+  background-size: cover;
+}
+
+#teamPicks__film {
+  background-image: url(../../media/exploreLabels/film_label.jpg);
+  background-size: cover;
+}
+
+#teamPicks__3drenders {
+  background-image: url(../../media/exploreLabels/3drenders_label.jpg);
+  background-size: cover;
+}
+
+#teamPicks__flowers {
+  background-image: url(../../media/exploreLabels/flowers_label.jpg);
+  background-size: cover;
+}
+
+#teamPicks__nightsky {
+  background-image: url(../../media/exploreLabels/night_label.jpg);
+  background-size: cover;
+}
+
+#teamPicks__ocean {
+  background-image: url(../../media/exploreLabels/ocean_label.jpg);
+  background-size: cover;
+}
+
+#teamPicks__art {
+  background-image: url(../../media/exploreLabels/art_label.jpg);
+  background-size: cover;
+}
+
+#teamPicks__fashion {
+  background-image: url(../../media/exploreLabels/fashion_label.jpg);
+  background-size: cover;
+}
+
+#teamPicks__drinks {
+  background-image: url(../../media/exploreLabels/drinks_label.jpg);
+  background-size: cover;
+}
+
+#teamPicks__cats {
+  background-image: url(../../media/exploreLabels/cats_label.jpg);
+  background-size: cover;
+}
+
+#teamPicks__running {
+  background-image: url(../../media/exploreLabels/running_label.jpg);
+  background-size: cover;
+}
+
+#teamPicks__sunrise {
+  background-image: url(../../media/exploreLabels/sunrise_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__backgrounds {
+  background-image: url(../../media/exploreLabels/backgrounds_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__wallpapers {
+  background-image: url(../../media/exploreLabels/wallpapers_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__iphonewallpapers {
+  background-image: url(../../media/exploreLabels/iphonewallpaper_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__pizza {
+  background-image: url(../../media/exploreLabels/pizza_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__holidays {
+  background-image: url(../../media/exploreLabels/holidays_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__sunrise {
+  background-image: url(../../media/exploreLabels/sunrise_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__mountains {
+  background-image: url(../../media/exploreLabels/mountain_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__countryside {
+  background-image: url(../../media/exploreLabels/countryside_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__resort {
+  background-image: url(../../media/exploreLabels/resort_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__coralreef {
+  background-image: url(../../media/exploreLabels/coralreef_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__solareclipse {
+  background-image: url(../../media/exploreLabels/solareclipse_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__nightsky {
+  background-image: url(../../media/exploreLabels/night_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__northernlights {
+  background-image: url(../../media/exploreLabels/northernlights_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__ocean {
+  background-image: url(../../media/exploreLabels/ocean_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__sky {
+  background-image: url(../../media/exploreLabels/sky_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__barbeque {
+  background-image: url(../../media/exploreLabels/barbeque_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__travel {
+  background-image: url(../../media/exploreLabels/travel_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__neonsigns {
+  background-image: url(../../media/exploreLabels/neonsigns_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__pastry {
+  background-image: url(../../media/exploreLabels/pastry_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__rain {
+  background-image: url(../../media/exploreLabels/rain_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__plants {
+  background-image: url(../../media/exploreLabels/plants_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__rave {
+  background-image: url(../../media/exploreLabels/rave_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__forest {
+  background-image: url(../../media/exploreLabels/forest_label.jpg);
+  background-size: cover;
+}
+
+#mostSearched__wedding {
+  background-image: url(../../media/exploreLabels/wedding_label.jpg);
+  background-size: cover;
+}
+
+@media (max-width: 1100px) {
+  .explore__container {
+    width: 200px;
+    height: 150px;
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+  }
+  
+  .explore__container--footer {
+    height: 45px;
+    border-radius: 0 0 15px 15px;
+  }
+}
+
+@media (max-width: 940px) {
+  .explore__container {
+    width: 170px;
+    height: 125px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+  }
+  
+  .explore__container--footer {
+    height: 40px;
+    border-radius: 0 0 15px 15px;
+  }
+}
+
+@media (max-width: 830px) {
+  .explore__container {
+    width: 200px;
+    height: 135px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+  }
+  
+  .explore__container--footer {
+    height: 50px;
+    border-radius: 0 0 15px 15px;
+  }
+}
+
+@media (max-width: 530px) {
+  .explore__container {
+    width: 400px;
+    height: 225px;
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+  }
+  
+  .explore__container--footer {
+    height: 60px;
+    border-radius: 0 0 15px 15px;
+  }
 }
