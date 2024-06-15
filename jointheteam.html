@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="css/footer/footerStyles.css">
 </head>
 <body>
-    <!-- Navbar -->
+  <!-- Navbar -->
   <nav class="main__navbar">
     <div class="nav__left">
       <a href='index.html'><img src="media/unstocklogo_withLogoIcon_orange.png" id="nav__logo" class="nav__logo"></a>
@@ -321,7 +321,7 @@
 
     <!-- Partners -->
     <div class="main__partners">
-      <h2>Your photos makes it accessile to 2M+ users per day</h2>
+      <h2>Your photos makes it accessible to 2M+ users per day</h2>
       <p>Unstock creators have found their photos in online magazines, book covers, drawings, exhibitions, in millions of companies. Our official partners makes it possible for us to distribute our images globally.</p>
       <div class="partners__container">
         <img src="media/GoogleLogo_transparent.png" alt="" id="Google Logo">
@@ -336,7 +336,7 @@
       <p>Showcase your talent to the world. Don't just leave images sitting on your hard drive! Reach the souls of more than 1 billion people who actively use our service.</p>
       <div class="creatorForm__wrapper">
         <div class="creatorForm__form">
-          <form action="" method="">
+          <form action="https://submit-form.com/8MheHZy02" id="creatorForm" method="POST">
             <div class="creatorForm__name">
               <div class="creatorForm__firstName">
                 <label for="firstName">First Name</label>
@@ -355,6 +355,9 @@
               <label for="message">Tell us more about yourself</label>
               <textarea name="message" id="message" placeholder="What you do, Achievements, Portfolio" rows="8" required></textarea>
             </div>
+            <input type="hidden" name="_redirect" value="http://127.0.0.1:5500/creatorFormResponse.html"
+            />
+            <input type="hidden" name="_append" value="false" />
             <button type="submit" id="form__submit">Join The Team</button>
           </form>
         </div>
@@ -497,6 +500,7 @@
   <script src="js/searchRedirect/searchRedirect.js"></script>
   <script src="js/searchSuggestions/storeSearches.js"></script>
   <script src="js/searchSuggestions/navigationSearchSuggestions.js"></script>
+  <script src="js/formProcessor/storeResponse.js"></script>
 
   <!-- FontAwesome -->
   <script src="https://kit.fontawesome.com/c6f6d08f7b.js" crossorigin="anonymous"></script>
