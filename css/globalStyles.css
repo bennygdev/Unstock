@@ -27,10 +27,10 @@
 }
 
 .accordion {
-  --bs-accordion-active-bg: #ffe5e5;
+  --bs-accordion-active-bg: #ffc88d;
   --bs-accordion-active-color: #2d4059;
-  --bs-accordion-btn-focus-border-color: #ea5455;
-  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(234, 84, 84, 0.409);
+  --bs-accordion-btn-focus-border-color: #ff8500;
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(255, 133, 0, 0.609);
 }
 
 html {

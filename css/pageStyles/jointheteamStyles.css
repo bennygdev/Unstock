@@ -422,3 +422,275 @@ main {
 
 
 }
+
+/* Benefits section CSS */
+.main__benefits {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 250px;
+}
+
+.main__benefits h2 {
+  font-family: OpenSansBold;
+  margin-bottom: 20px;
+  font-size: 2.1em;
+}
+
+.main__benefits p {
+  margin-bottom: 40px;
+}
+
+#benefits__table {
+  width: 60vw;
+  border-radius: 20px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+#benefits__table caption {
+  caption-side: top;
+  text-align: center;
+}
+
+#benefits__table tr, #benefits__table td, #benefits__table th {
+  border: 1px solid #d8d8d8;
+}
+
+#benefits__table tr:last-child td {
+  /* border-radius: 10px 10px 10px 10px; */
+}
+
+#benefits__table th {
+  background-color: #EFEFEF;
+  font-family: OpenSansBold;
+  padding: 20px;
+}
+
+#benefits__table td {
+  padding: 20px;
+}
+
+#benefits__table tr:first-child th:first-child {
+  border-top-left-radius: 20px;
+}
+
+#benefits__table tr:first-child th:last-child {
+  border-top-right-radius: 20px;
+}
+
+#benefits__table tr:last-child td:first-child {
+  border-bottom-left-radius: 20px;
+  /* background-color: #7A7A7A; */
+}
+
+#benefits__table tr:nth-child(4) td:last-child {
+  border-bottom-right-radius: 20px;
+  /* background-color: #7A7A7A; */
+}
+
+.main__partners {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 250px;
+}
+
+.main__partners h2 {
+  font-family: OpenSansBold;
+  margin-bottom: 20px;
+  font-size: 2.1em;
+}
+
+.main__partners p {
+  margin-bottom: 40px;
+  width: 60vw;
+  text-align: center;
+}
+
+.partners__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.partners__container img {
+  width: 20%;
+  height: fit-content;
+  opacity: 0.5;
+  transition: transform 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.partners__container img:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+  transition: transform 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+/* Creator Form CSS */
+.main__creatorForm {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 250px;
+}
+
+.main__creatorForm h2 {
+  font-family: OpenSansBold;
+  margin-bottom: 20px;
+  font-size: 2.1em;
+}
+
+.main__creatorForm p {
+  margin-bottom: 40px;
+  width: 60vw;
+  text-align: center;
+}
+
+/* form styles */
+.creatorForm__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 80%;
+}
+
+.creatorForm__form {
+  width: 70%;
+}
+
+.creatorForm__form label {
+  font-family: OpenSansBold;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.creatorForm__image {
+  width: 30%;
+  height: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.creatorForm__name {
+  display: flex;
+  flex-direction: row;
+}
+
+.creatorForm__firstName {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  /* margin-right: 40px; */
+}
+
+.creatorForm__firstName input {
+  /* width: 100%; */
+}
+
+.creatorForm__lastName {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  /* margin-right: 40px; */
+}
+
+.creatorForm__email {
+  display: flex;
+  flex-direction: column;
+}
+
+.creatorForm__message {
+  display: flex;
+  flex-direction: column;
+}
+
+.creatorForm__message textarea {
+  resize: none;
+  border: 1px solid #D8D8D8;
+  border-radius: 10px;
+  margin-right: 40px;
+  padding: 15px 15px 15px 15px;
+  font-size: 0.9em;
+}
+
+.creatorForm__form input {
+  border: 1px solid #D8D8D8;
+  border-radius: 10px;
+  height: 45px;
+  margin-right: 40px;
+  padding: 5px 15px 5px 15px;
+  font-size: 0.9em;
+}
+
+#form__submit {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 12px 25px 12px 25px;
+  border: none;
+  border-radius: 10px;
+  background-color: #000000;
+  color: #fff;
+  font-size: 0.9em;
+}
+
+#creatorForm__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* FAQ CSS */
+.main__faq {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 120px;
+}
+
+#main__faq--header {
+  font-family: OpenSansBold;
+  margin-bottom: 20px;
+  font-size: 2.1em;
+}
+
+.accordion {
+  border: none;
+}
+
+.accordion-header {
+  font-family: OpenSansBold;
+}
+
+#main__faq--description {
+  margin-bottom: 40px;
+  width: 60vw;
+  text-align: center;
+}
+
+.main__faq--wrapper {
+  width: 80%;
+}
+
+.body-header {
+  font-family: OpenSansBold;
+  font-size: 1em;
+}
+
+.accordion-body p {
+  font-family: OpenSansRegular;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+.accordion-body ul li {
+  font-family: OpenSansRegular;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+  line-height: 15px;
+}
