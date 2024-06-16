@@ -267,6 +267,12 @@ main {
   margin-right: 15px;
 }
 
+@media (max-width: 1080px) {
+  .review__container {
+    width: 350px;
+  }
+}
+
 /* Main - Apparel section */
 .main__apparel {
   display: flex;
@@ -283,6 +289,7 @@ main {
 
 .main__apparel p {
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .apparel__wrapper {
@@ -428,6 +435,46 @@ main {
     margin-top: 40px;
     margin-left: 15px;
   }
+
+  .apparel__container--tourFooter {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .apparel__row1, .apparel__row2 {
+    flex-direction: column;
+  }
+
+  .apparel__container {
+    width: inherit;
+    height: 300px;
+  }
+
+  .apparel__container p {
+    font-size: 1.2em;
+  }
+
+  #apparel__shirt {
+    width: 40%;
+    height: 80%;
+  }
+  
+  #apparel__mug {
+    width: 40%;
+    height: 90%;
+  }
+  
+  #apparel__totebag {
+    width: 30%;
+    height: 90%;
+  }
+  
+  #apparel__pin {
+    width: 50%;
+    height: 90%;
+  }
 }
 
 /* Benefits section CSS */
@@ -446,6 +493,7 @@ main {
 
 .main__benefits p {
   margin-bottom: 40px;
+  text-align: center;
 }
 
 #benefits__table {
@@ -508,6 +556,7 @@ main {
   font-family: OpenSansBold;
   margin-bottom: 20px;
   font-size: 2.1em;
+  text-align: center;
 }
 
 .main__partners p {
@@ -524,7 +573,8 @@ main {
 }
 
 .partners__container img {
-  width: 20%;
+  /* width: 20%; */
+  width: 19vw;
   height: fit-content;
   opacity: 0.5;
   transition: transform 0.4s ease;
@@ -536,6 +586,17 @@ main {
   transform: scale(1.05);
   transition: transform 0.4s ease;
   transition: all 0.4s ease;
+}
+
+@media (max-width: 480px) {
+  .partners__container {
+    flex-direction: column;
+  }
+
+  .partners__container img {
+    width: 70vw;
+    margin: 20px;
+  }
 }
 
 /* Creator Form CSS */
@@ -550,6 +611,7 @@ main {
   font-family: OpenSansBold;
   margin-bottom: 20px;
   font-size: 2.1em;
+  text-align: center;
 }
 
 .main__creatorForm p {
@@ -650,6 +712,39 @@ main {
   height: 100%;
   object-fit: cover;
   border-radius: 15px;
+}
+
+@media (max-width: 900px) {
+  .creatorForm__name {
+    flex-direction: column;
+  }
+
+  .creatorForm__firstName, .creatorForm__lastName {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .creatorForm__wrapper {
+    flex-direction: column;
+    /* width: 100%; */
+  }
+
+  .creatorForm__form {
+    width: 100%;
+  }
+
+  .creatorForm__form input {
+    width: 100%;
+  }
+
+  .creatorForm__form textarea {
+    width: 100%;
+  }
+
+  .creatorForm__image {
+    width: 100%;
+  }
 }
 
 /* FAQ CSS */
