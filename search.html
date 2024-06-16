@@ -8,6 +8,7 @@
   <!-- Web Icon -->
   <link rel="icon" href="media/unstock-logo.ico">
 
+  <!-- Custom CSS Styles -->
   <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/globalStyles.css">
   <link rel="stylesheet" href="css/navigationStyles/navigationStyles.css">
@@ -21,7 +22,7 @@
   <!-- Navbar -->
   <nav class="main__navbar">
     <div class="nav__left">
-      <a href='index.html'><img src="media/unstocklogo_withLogoIcon_orange.png" id="nav__logo" class="nav__logo"></a>
+      <a href='index.html'><img src="media/unstocklogo_withLogoIcon_orange.png" id="nav__logo" class="nav__logo" alt="Unstock Logo"></a>
 
       <!-- Search functionality -->
       <div class="nav__search-container">
@@ -45,7 +46,7 @@
   <!-- Offcanvas menu -->
   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenu">
     <div class="offcanvas-header">
-      <img src="media/unstocklogo_withLogoIcon_orange.png" class="offcanvas-logo" alt="">
+      <img src="media/unstocklogo_withLogoIcon_orange.png" class="offcanvas-logo" alt="Unstock Logo">
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -100,18 +101,17 @@
       <div class="modal-header">
         <div class="header-left">
           <div id="image__photographer--name" class="image__photographer--name nomobile"></div>
-          <!-- <i class="fa-regular fa-bookmark fa-2xl save mobile"></i> -->
         </div>
         <div class="header-right">
           <i class="fa-regular fa-bookmark fa-2xl save nomobile"></i>
-          <a id="download-button" class="download-button" download>Download</a>
+          <button id="download-button" class="download-button">Download</button>
           <i class="fa-solid fa-xmark fa-2xl close"></i>
         </div>
       </div>
       <div class="modalSpinner__container">
         <div class="modalSpinner"></div>
       </div>
-      <img id="modal__image" src="" alt="Image" data-photo-id="">
+      <img id="modal__image" src="media/grey_image.png" alt="Image" data-photo-id="">
       <div class="header-bottom">
         <div id="image__photographer--name-bottom" class="image__photographer--name-bottom mobile"></div>
       </div>

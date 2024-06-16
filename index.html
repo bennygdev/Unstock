@@ -8,6 +8,7 @@
   <!-- Web Icon -->
   <link rel="icon" href="media/unstock-logo.ico">
 
+  <!-- Custom CSS Styles -->
   <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/globalStyles.css">
   <link rel="stylesheet" href="css/navigationStyles/homeNavigationStyles.css">
@@ -22,7 +23,7 @@
     <!-- Navbar -->
     <nav class="main__navbar">
       <div class="nav__left">
-        <a href='index.html'><img src="media/unstocklogo_withLogoIcon_white.png" id="nav__logo" class="nav__logo"></a>
+        <a href='index.html'><img src="media/unstocklogo_withLogoIcon_white.png" id="nav__logo" class="nav__logo" alt="Unstock Logo"></a>
 
         <!-- Scrolled Nav search bar -->
         <div class="nav__search-container">
@@ -46,7 +47,7 @@
     <!-- Offcanvas menu -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenu">
       <div class="offcanvas-header">
-        <img src="media/unstocklogo_withLogoIcon_orange.png" class="offcanvas-logo" alt="">
+        <img src="media/unstocklogo_withLogoIcon_orange.png" class="offcanvas-logo" alt="Unstock Logo">
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
@@ -58,7 +59,6 @@
           <li><a class='nav__link' href='saved.html'>Saved</a></li>
         </ul>
         <div class="offcanvas-nav__extra">
-          <!-- <p>Privacy Policy | Terms of service | License</p> -->
           <a href="privacypolicy.html"><p>Privacy Policy</p></a>
           <a href="termsofservice.html"><p>Terms of service</p></a>
           <a href="license.html"><p>License</p></a>
@@ -67,23 +67,22 @@
       </div>
     </div>
 
-    <img src="media/pexels-padurarul-340981.jpg" id="hero__image" alt="">
+    <img src="media/pexels-padurarul-340981.jpg" id="hero__image" alt="Hero section image">
     <div id="overlay"></div>
 
     <!-- Home search bar -->
     <div class="hero__content">
       <h1>Explore the best stock images, shared by creators.</h1>
       <div class="hero__trending-wrapper">
-        <!-- <span class="hero__trending-label">Trending:</span> -->
         <div class="hero__topic-container" id="hero__topic-animals"><i class="fa-solid fa-arrow-trend-up"></i><span>Animals</span></div>
         <div class="hero__topic-container" id="hero__topic-nature"><i class="fa-solid fa-arrow-trend-up"></i><span>Nature</span></div>
         <div class="hero__topic-container" id="hero__topic-travel"><i class="fa-solid fa-arrow-trend-up"></i><span>Travel</span></div>
         <div class="hero__topic-container" id="hero__topic-hiking"><i class="fa-solid fa-arrow-trend-up"></i><span>Hiking</span></div>
       </div>  
       <div class="hero__search-container">
-          <input type="text" id="hero__search-bar" class="hero__search-bar" placeholder="Search for free images..." autocomplete="off">
-          <i class="fa-solid fa-magnifying-glass fa-lg hero__search-button" id="hero__search-button"></i>
-          <div id="hero__search--suggestions" class="hero__search--suggestions"></div>
+        <input type="text" id="hero__search-bar" class="hero__search-bar" placeholder="Search for free images..." autocomplete="off">
+        <i class="fa-solid fa-magnifying-glass fa-lg hero__search-button" id="hero__search-button"></i>
+        <div id="hero__search--suggestions" class="hero__search--suggestions"></div>
       </div>
     </div>
   </section>
@@ -100,6 +99,7 @@
       <div class="column" id="image__container-3"></div>
     </div>
   
+    <!-- Load more images button -->
     <div id="load-more-container">
       <div class="loadSpinner__container">
         <div class="loadSpinner"></div>
@@ -114,18 +114,17 @@
       <div class="modal-header">
         <div class="header-left">
           <div id="image__photographer--name" class="image__photographer--name nomobile"></div>
-          <!-- <i class="fa-regular fa-bookmark fa-2xl save mobile"></i> -->
         </div>
         <div class="header-right">
           <i class="fa-regular fa-bookmark fa-2xl save nomobile"></i>
-          <a id="download-button" class="download-button" download>Download</a>
+          <button id="download-button" class="download-button">Download</button>
           <i class="fa-solid fa-xmark fa-2xl close"></i>
         </div>
       </div>
       <div class="modalSpinner__container">
         <div class="modalSpinner"></div>
       </div>
-      <img id="modal__image" src="" alt="Image" data-photo-id="">
+      <img id="modal__image" src="media/grey_image.png" alt="Modal Image" data-photo-id="">
       <div class="header-bottom">
         <div id="image__photographer--name-bottom" class="image__photographer--name-bottom mobile"></div>
       </div>
