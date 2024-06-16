@@ -15,7 +15,7 @@ body {
 }
 
 #success__image {
-  width: 20vw;
+  width: 400px;
   margin-bottom: 20px;
 }
 
@@ -97,4 +97,10 @@ body {
   text-decoration: none;
   border-radius: 10px;
   font-size: 0.9em;
+}
+
+@media (max-width: 480px) {
+  #success__image {
+    width: 300px;
+  }
 }

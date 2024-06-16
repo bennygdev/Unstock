@@ -206,13 +206,16 @@ main {
 
 .whyJoinUs__reviews {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .review__container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 25vw;
+  justify-content: space-between
+  /* width: 25vw; */;
+  width: 450px;
   /* height: 300px; */
   border-radius: 20px;
   background-color: #fff;
@@ -418,9 +421,13 @@ main {
 @media (max-width: 900px) {
   .apparel__wrapper {
     flex-direction: column;
+    
   }
 
-
+  .apparel__container--tour {
+    margin-top: 40px;
+    margin-left: 15px;
+  }
 }
 
 /* Benefits section CSS */
@@ -458,9 +465,9 @@ main {
   border: 1px solid #d8d8d8;
 }
 
-#benefits__table tr:last-child td {
-  /* border-radius: 10px 10px 10px 10px; */
-}
+/* #benefits__table tr:last-child td {
+  border-radius: 10px 10px 10px 10px;
+} */
 
 #benefits__table th {
   background-color: #EFEFEF;
@@ -588,9 +595,9 @@ main {
   /* margin-right: 40px; */
 }
 
-.creatorForm__firstName input {
-  /* width: 100%; */
-}
+/* .creatorForm__firstName input {
+  width: 100%;
+} */
 
 .creatorForm__lastName {
   display: flex;
