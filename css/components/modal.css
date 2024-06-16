@@ -114,6 +114,30 @@ i.mobile, div.mobile {
   display: none;
 }
 
+.modalSpinner__container {
+  display: none;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.modalSpinner {
+  border: 1rem solid #eee8dc;
+  border-top: 16px solid #FF8500;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: loop 2s linear infinite;
+}
+
+@keyframes loop {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @media (max-width: 768px) {
   i.mobile, div.mobile {
     display: block;

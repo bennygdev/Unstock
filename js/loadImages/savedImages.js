@@ -4,10 +4,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const noResultsContainer = document.querySelector('.no-results-container');
   const imageGalleryTitle = document.getElementById('images__gallery-title');
+  const spinnerContainer = document.querySelector('.spinner__container');
+  const modalSpinnerContainer = document.querySelector('.modalSpinner__container');
+
+  function showSpinner() {
+    spinnerContainer.style.display = 'flex';
+  }
+
+  function hideSpinner() {
+    spinnerContainer.style.display = 'none';
+  }
+
+  function showModalSpinner() {
+    modalSpinnerContainer.style.display = 'flex';
+  }
+
+  function hideModalSpinner () {
+    modalSpinnerContainer.style.display = 'none';
+  }
 
   displaySavedImages(savedPhotos);
 
   function displaySavedImages(savedPhotos) {
+    showSpinner();
     const container1 = document.getElementById('image__container-1');
     const container2 = document.getElementById('image__container-2');
     const container3 = document.getElementById('image__container-3');
@@ -46,7 +65,10 @@ document.addEventListener('DOMContentLoaded', function() {
               container3.appendChild(img);
             }
           })
-          .catch(error => console.error('Error fetching saved photo:', error));
+          .catch(error => console.error('Error fetching saved photo:', error))
+          .finally(() => {
+            hideSpinner();
+          })
       });
     }
   }
@@ -86,6 +108,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const photographerElementBottom = document.getElementById("image__photographer--name-bottom");
     const saveBookmark = document.querySelector('.save');
 
+    showModalSpinner();
+    modalImg.style.display = 'none';
+
     modalImg.src = imageSrc;
     photographerElement.textContent = `By ${photographerName}`;
     photographerElementBottom.textContent = `By ${photographerName}`;
@@ -107,6 +132,11 @@ document.addEventListener('DOMContentLoaded', function() {
     saveBookmark.onclick = function () {
       // console.log('click')
       toggleSave(photoId);
+    };
+
+    modalImg.onload = function() {
+      hideModalSpinner();
+      modalImg.style.display = 'block';
     };
 
     modal.style.display = "block";

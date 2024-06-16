@@ -92,12 +92,18 @@
   <main class="images__gallery">
     <div class="row">
       <h2 id="images__gallery-title">Popular images</h2>
+      <div class="spinner__container">
+        <div class="spinner"></div>
+      </div>
       <div class="column" id="image__container-1"></div>
       <div class="column" id="image__container-2"></div>
       <div class="column" id="image__container-3"></div>
     </div>
   
     <div id="load-more-container">
+      <div class="loadSpinner__container">
+        <div class="loadSpinner"></div>
+      </div>
       <button id="load-more-button">Load More</button>
     </div>
   </main>
@@ -115,6 +121,9 @@
           <a id="download-button" class="download-button" download>Download</a>
           <i class="fa-solid fa-xmark fa-2xl close"></i>
         </div>
+      </div>
+      <div class="modalSpinner__container">
+        <div class="modalSpinner"></div>
       </div>
       <img id="modal__image" src="" alt="Image" data-photo-id="">
       <div class="header-bottom">

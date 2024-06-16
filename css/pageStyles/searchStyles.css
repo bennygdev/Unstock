@@ -110,6 +110,10 @@
   object-fit: cover;
 }
 
+#image-container-2 p {
+  text-align: center;
+}
+
 /* Load more images styling */
 #load-more-button {
   display: flex;
@@ -128,6 +132,31 @@
 
 #load-more-button:hover {
   transform: scale(1.08);
+}
+
+.spinner__container {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 100px;
+}
+
+.spinner {
+  border: 1rem solid #eee8dc;
+  border-top: 16px solid #FF8500;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: loop 2s linear infinite;
+}
+
+@keyframes loop {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 1024px) {

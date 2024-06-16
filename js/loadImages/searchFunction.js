@@ -7,6 +7,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const loadMoreButton = document.getElementById('load-more-button');
   loadMoreButton.style.display = 'none';
+  const spinnerContainer = document.querySelector('.spinner__container');
+  const modalSpinnerContainer = document.querySelector('.modalSpinner__container');
+
+  function showSpinner() {
+    spinnerContainer.style.display = 'flex';
+  }
+
+  function hideSpinner() {
+    spinnerContainer.style.display = 'none';
+  }
+
+  function showModalSpinner() {
+    modalSpinnerContainer.style.display = 'flex';
+  }
+
+  function hideModalSpinner () {
+    modalSpinnerContainer.style.display = 'none';
+  }
 
   // Takes the result from the URL and searches for the image based on the search query
   function updateURL(query) {
@@ -64,73 +82,79 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Search function for images
   function searchImages(query) {
-      const url = `https://api.pexels.com/v1/search?query=${query}&per_page=${perPage}`;
+    const noResultsContainer = document.querySelector('.no-results-container');
+    noResultsContainer.style.display = 'none';
+    showSpinner();
+    const url = `https://api.pexels.com/v1/search?query=${query}&per_page=${perPage}`;
 
-      fetch(url, {
-          headers: {
-              'Authorization': apiKey
-          }
-      })
-      .then(response => response.json())
-      .then(data => {
-          document.getElementById('image-container-1').innerHTML = '';
-          document.getElementById('image-container-2').innerHTML = '';
-          document.getElementById('image-container-3').innerHTML = '';
-          const resultsFor = document.querySelector('.results-for');
-          const resultsDivider = document.getElementById('search__result--divider');
-          const noResultsContainer = document.querySelector('.no-results-container');
-          const resultsSpan = document.getElementById("search__result");
+    fetch(url, {
+      headers: {
+        'Authorization': apiKey
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('image-container-1').innerHTML = '';
+      document.getElementById('image-container-2').innerHTML = '';
+      document.getElementById('image-container-3').innerHTML = '';
+      const resultsFor = document.querySelector('.results-for');
+      const resultsDivider = document.getElementById('search__result--divider');
+      const noResultsContainer = document.querySelector('.no-results-container');
+      const resultsSpan = document.getElementById("search__result");
 
-          // console.log(data)
+      // console.log(data)
 
-          if (data.photos && data.photos.length > 0) {
-              // Loop through the photos and distribute them across the three columns
-              data.photos.forEach((photo, index) => {
-                  const img = document.createElement('img');
-                  img.src = photo.src.large;
-                  img.alt = photo.photographer;
-                  img.setAttribute('data-photo-id', photo.id); // set id for ech img
-                  img.addEventListener('click', function() {
-                    showModal(photo.src.original, photo.photographer, photo.id);
-                  });
+      if (data.photos && data.photos.length > 0) {
+        // Loop through the photos and distribute them across the three columns
+        data.photos.forEach((photo, index) => {
+        const img = document.createElement('img');
+        img.src = photo.src.large;
+        img.alt = photo.photographer;
+        img.setAttribute('data-photo-id', photo.id); // set id for ech img
+        img.addEventListener('click', function() {
+          showModal(photo.src.original, photo.photographer, photo.id);
+        });
 
-                  if (index % 3 === 0) {
-                      document.getElementById('image-container-1').appendChild(img);
-                  } else if (index % 3 === 1) {
-                      document.getElementById('image-container-2').appendChild(img);
-                  } else {
-                      document.getElementById('image-container-3').appendChild(img);
-                  }
-              });
-
-              loadMoreButton.style.display = 'block';
-              resultsFor.style.display = 'block';
-              resultsDivider.style.display = 'block';
-              resultsSpan.textContent = `${query}`;
-              noResultsContainer.style.display = 'none';
+          if (index % 3 === 0) {
+            document.getElementById('image-container-1').appendChild(img);
+          } else if (index % 3 === 1) {
+            document.getElementById('image-container-2').appendChild(img);
           } else {
-              document.getElementById('image-container-1').innerHTML = 'No images found';
-              document.getElementById('image-container-2').innerHTML = 'No images found';
-              document.getElementById('image-container-3').innerHTML = 'No images found';
-
-            loadMoreButton.style.display = 'none';
-            resultsFor.style.display = 'none';
-            resultsDivider.style.display = 'none';
-            noResultsContainer.style.display = 'none';
+            document.getElementById('image-container-3').appendChild(img);
           }
+        });
+
+        loadMoreButton.style.display = 'block';
+        resultsFor.style.display = 'block';
+        resultsDivider.style.display = 'block';
+        resultsSpan.textContent = `${query}`;
+        noResultsContainer.style.display = 'none';
+      } else {
+        document.getElementById('image-container-1').innerHTML = '';
+        document.getElementById('image-container-2').innerHTML = '<p>No images found. <a href="search.html">Go back</a></p>';
+        document.getElementById('image-container-3').innerHTML = '';
+
+        loadMoreButton.style.display = 'none';
+        resultsFor.style.display = 'none';
+        resultsDivider.style.display = 'none';
+        noResultsContainer.style.display = 'none';
+        }
       })
       .catch(error => {
-          console.error('Error fetching the images:', error);
-          document.getElementById('image-container-1').innerHTML = 'An error occurred while fetching the images.';
-          document.getElementById('image-container-2').innerHTML = 'An error occurred while fetching the images.';
-          document.getElementById('image-container-3').innerHTML = 'An error occurred while fetching the images.';
+        console.error('Error fetching the images:', error);
+        document.getElementById('image-container-1').innerHTML = '';
+        document.getElementById('image-container-2').innerHTML = '<p>An error occurred while fetching the images.</p>';
+        document.getElementById('image-container-3').innerHTML = '';
 
         // Hide the Load More button
         loadMoreButton.style.display = 'none';
         resultsFor.style.display = 'none';
         resultsDivider.style.display = 'none';
-        noResultsContainer.style.display = 'flex';
-      });
+        noResultsContainer.style.display = 'none';
+      })
+      .finally(() => {
+        hideSpinner();
+      })
   }
 
   // Function to show the modal with the clicked image
@@ -141,6 +165,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const photographerElement = document.getElementById("image__photographer--name");
     const photographerElementBottom = document.getElementById("image__photographer--name-bottom");
     const saveBookmark = document.querySelector('.save');
+
+    showModalSpinner();
+    modalImg.style.display = 'none';
 
     modalImg.src = imageSrc;
     photographerElement.textContent = `By ${photographerName}`;
@@ -163,6 +190,11 @@ document.addEventListener('DOMContentLoaded', function() {
     saveBookmark.onclick = function () {
       // console.log('click')
       toggleSave(photoId);
+    };
+
+    modalImg.onload = function() {
+      hideModalSpinner();
+      modalImg.style.display = 'block';
     };
 
     modal.style.display = "block";
@@ -242,47 +274,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Function to load more images
   function loadMoreImages() {
-      currentPage++; // Increment the page number
-      const query = document.querySelector('.nav__search-bar').value;
-      const url = `https://api.pexels.com/v1/search?query=${query}&per_page=${perPage}&page=${currentPage}`;
+    loadMoreButton.style.display = 'none';
+    showSpinner();
+    currentPage++; // Increment the page number
+    const query = document.querySelector('.nav__search-bar').value;
+    const url = `https://api.pexels.com/v1/search?query=${query}&per_page=${perPage}&page=${currentPage}`;
 
-      fetch(url, {
-          headers: {
-              'Authorization': apiKey
-          }
-      })
-      .then(response => response.json())
-      .then(data => {
-          if (data.photos && data.photos.length > 0) {
-              data.photos.forEach((photo, index) => {
-                  // Create and append image elements to the appropriate container
-                  const img = document.createElement('img');
-                  img.src = photo.src.large;
-                  img.alt = photo.photographer;
-                  img.id = `image-${index}`; // Set a unique ID for each image
-                  img.addEventListener('click', function() {
-                      showModal(photo.src.original, photo.photographer);
-                  });
+    fetch(url, {
+      headers: {
+        'Authorization': apiKey
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.photos && data.photos.length > 0) {
+        data.photos.forEach((photo, index) => {
+          // Create and append image elements to the appropriate container
+          const img = document.createElement('img');
+          img.src = photo.src.large;
+          img.alt = photo.photographer;
+          img.id = `image-${index}`; // Set a unique ID for each image
+          img.addEventListener('click', function() {
+            showModal(photo.src.original, photo.photographer);
+          });
 
-                  // Determine which column to append the image to
-                  const columnIndex = (index + 1) % 3;
-                  const containerId = `image-container-${columnIndex === 0 ? 3 : columnIndex}`;
+          // Determine which column to append the image to
+          const columnIndex = (index + 1) % 3;
+          const containerId = `image-container-${columnIndex === 0 ? 3 : columnIndex}`;
 
-                  document.getElementById(containerId).appendChild(img);
-              });
+          document.getElementById(containerId).appendChild(img);
+        });
 
-              // Show the Load More button
-              loadMoreButton.style.display = 'block';
-          } else {
-              // No more images to load
-              document.getElementById('load-more-container').innerHTML = 'No more images to load';
-            // Hide the Load More button
-            loadMoreButton.style.display = 'none';
-          }
-      })
-      .catch(error => {
-          console.error('Error fetching more images:', error);
-      });
+        // Show the Load More button
+        loadMoreButton.style.display = 'block';
+      } else {
+        // No more images to load
+        document.getElementById('load-more-container').innerHTML = 'No more images to load';
+        // Hide the Load More button
+        loadMoreButton.style.display = 'none';
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching more images:', error);
+    })
+    .finally(() => {
+      hideSpinner();
+    })
   }
 
   // navigation search bar button function

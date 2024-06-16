@@ -3,10 +3,40 @@ document.addEventListener('DOMContentLoaded', function() {
   let currentPage = 1; // Track the current page of results
   const perPage = 96; // Number of images per page
 
+  const loadMoreButton = document.getElementById('load-more-button');
+  const spinnerContainer = document.querySelector('.spinner__container');
+  const loadSpinnerContainer = document.querySelector('.loadSpinner__container');
+  const modalSpinnerContainer = document.querySelector('.modalSpinner__container');
+
+  function showSpinner() {
+    spinnerContainer.style.display = 'flex';
+  }
+
+  function hideSpinner() {
+    spinnerContainer.style.display = 'none';
+  }
+
+  function showLoadSpinner() {
+    loadSpinnerContainer.style.display = 'flex';
+  }
+
+  function hideLoadSpinner() {
+    loadSpinnerContainer.style.display = 'none';
+  }
+
+  function showModalSpinner() {
+    modalSpinnerContainer.style.display = 'flex';
+  }
+
+  function hideModalSpinner () {
+    modalSpinnerContainer.style.display = 'none';
+  }
+
   fetchCuratedImages();
 
   // Fetches curated images
   function fetchCuratedImages() {
+    showSpinner();
     const url = `https://api.pexels.com/v1/curated?per_page=${perPage}`;
 
     fetch(url, {
@@ -19,7 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
       displayImages(data.photos);
       // console.log(data)
     })
-    .catch(error => console.error('Error fetching curated images:', error));
+    .catch(error => console.error('Error fetching curated images:', error))
+    .finally(() => {
+      hideSpinner();
+    })
   }
 
   // Fetches response and displays images
@@ -50,6 +83,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const photographerElementBottom = document.getElementById("image__photographer--name-bottom");
     const saveBookmark = document.querySelector('.save');
 
+    showModalSpinner();
+    modalImg.style.display = 'none';
+
     modalImg.src = imageSrc;
     modalImg.setAttribute('data-photo-id', photoId);
 
@@ -73,6 +109,11 @@ document.addEventListener('DOMContentLoaded', function() {
     saveBookmark.onclick = function () {
       // console.log('click')
       toggleSave(photoId);
+    };
+
+    modalImg.onload = function() {
+      hideModalSpinner();
+      modalImg.style.display = 'block';
     };
 
     modal.style.display = "block";
@@ -124,6 +165,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Load more images
   function loadMoreImages() {
+    loadMoreButton.style.display = 'none';
+    showLoadSpinner();
     currentPage++;
     const url = `https://api.pexels.com/v1/curated?per_page=${perPage}&page=${currentPage}`;
 
@@ -134,9 +177,19 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(response => response.json())
     .then(data => {
-      displayImages(data.photos);
+      if (data.photos && data.photos.length > 0) {
+        displayImages(data.photos);
+        loadMoreButton.style.display = 'block';
+      } else {
+        document.getElementById('load-more-container').innerHTML = 'No more images to load';
+        // Hide the Load More button
+        loadMoreButton.style.display = 'none';
+      }
     })
-    .catch(error => console.error('Error fetching more images:', error));
+    .catch(error => console.error('Error fetching more images:', error))
+    .finally(()  => {
+      hideLoadSpinner();
+    })
   }
 
   // Load more images function
