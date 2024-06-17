@@ -17,7 +17,7 @@
 
 .offcanvas-nav a {
   display: block;
-  color: #000;
+  color: var(--primary-black);
 }
 
 .offcanvas-nav__extra {
@@ -28,9 +28,9 @@
 }
 
 .offcanvas-nav__extra a {
-  color: #808080;
+  color: var(--primary-iconButton);
 }
 
 .offcanvas-nav .offcanvas__link--active {
-  color: #FF8500;
+  color: var(--primary-orange);
 }

@@ -5,14 +5,14 @@
 
 #recent__searches-noResults {
   font-size: 0.8em;
-  color: #808080;
+  color: var(--primary-iconButton);
 }
 
 #search__result {
   font-family: OpenSansBold
 }
 
-/* Flexbox for centering the columns */
+/* Image gallery styles */
 .row {
   display: flex;
   justify-content: center;
@@ -21,7 +21,6 @@
   padding-right: 5%;
 }
 
-/* Image gallery styles */
 .column {
   width: 33.2%;
   padding: 10px;
@@ -41,7 +40,7 @@
   justify-content: center;
   align-items: center;
   font-size: 1.5em;
-  color: #333;
+  color: var(--primary-black);
 }
 
 #no-results-image {
@@ -59,7 +58,7 @@
   width: 100%;
   height: 10px;
   border-radius: 5px;
-  background-color: orange;
+  background-color: var(--secondary-orange);
   margin-bottom: 20px;
   border: none;
   opacity: 1; /* overwrite bootstrap default opacity */
@@ -71,11 +70,11 @@
   width: 40vw;
 }
 
-/* Label buttons  */
+/* Label buttons */
 .search__historyLabel-button {
-  border: 1px solid #808080;
+  border: 1px solid var(--primary-iconButton);
   background-color: transparent;
-  color: #000;
+  color: var(--primary-black);
   font-size: 0.7em;
   padding: 10px 15px;
   margin: 5px;
@@ -118,8 +117,8 @@
 #load-more-button {
   display: flex;
   margin: 0 auto;
-  background-color: #000;
-  color: white;
+  background-color: var(--primary-black);
+  color: var(--primary-white);
   width: 140px;
   height: 45px;
   border-radius: 10px;
@@ -142,14 +141,15 @@
 }
 
 .spinner {
-  border: 1rem solid #eee8dc;
-  border-top: 16px solid #FF8500;
+  border: 1rem solid var(--spinner-body);
+  border-top: 16px solid var(--spinner-primary);
   border-radius: 50%;
   width: 120px;
   height: 120px;
   animation: loop 2s linear infinite;
 }
 
+/* Animations for spinner */
 @keyframes loop {
   0% {
     transform: rotate(0deg);

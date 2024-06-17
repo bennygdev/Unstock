@@ -14,9 +14,30 @@
   src: url(../fonts/Open_Sans/static/OpenSans-Bold.ttf);
 }
 
-/* Declaring main variable colours */
+/* Main variable colours */
 :root {
-  
+  --primary-black: #000;
+  --primary-white: #fff;
+  --primary-orange: #FF8500;
+  --primary-border: #ccc;
+  --primary-grey: #d3d3d3;
+
+  --primary-iconButton: #808080;
+
+  --secondary-black: #333;
+  --secondary-orange: #FFA500;
+  --secondary-grey: #f3f3f3;
+  --secondary-border: #ececec;
+
+  --header-grey: #efefef;
+  --body-grey: #F3F4F6;
+  --search-primary: #e5e5e5;
+  --footer-primary: #eeeeee;
+  --footer-search: #d4d4d4;
+  --modal-content: #fefefe;
+
+  --spinner-body: #eee8dc;
+  --spinner-primary: #FF8500;
 }
 
 /* Overwriting Bootstrap CSS variables */

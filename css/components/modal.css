@@ -12,7 +12,7 @@
 }
 
 .image__modal--content {
-  background-color: #fefefe;
+  background-color: var(--modal-content);
   margin: 2.2% auto;
   padding: 20px 0px;
   max-width: 85%;
@@ -27,18 +27,6 @@
   overflow: hidden;
 }
 
-/* Position close button outside of modal (Ignore this) */
-/* .close {
-  position: absolute;
-  top: 15px;
-  left: 15px; 
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: bold;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-} */
-
 .close {
   cursor: pointer;
   border: none;
@@ -51,6 +39,7 @@
   cursor: pointer;
 }
 
+/* Modal header styles */
 .modal-header {
   display: flex;
   justify-content: space-between;
@@ -59,7 +48,7 @@
   box-sizing: border-box;
   margin-bottom: 20px;
   padding-bottom: 20px;
-  border-bottom: 2px solid #EEE;
+  border-bottom: 2px solid var(--secondary-border);
 }
 
 .image__photographer--name {
@@ -89,6 +78,19 @@
   margin-right: 20px;
 }
 
+.download-button {
+  padding: 13px 50px;
+  font-size: 1em;
+  background-color: var(--primary-black);
+  border-radius: 10px;
+  color: var(--primary-white);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 30px;
+}
+
+/* Main content */
 #modal__image {
   max-width: 100%;
   max-height: calc(100% - 100px);
@@ -98,17 +100,6 @@
   margin: 0 auto;
 }
 
-.download-button {
-  padding: 13px 50px;
-  font-size: 1em;
-  background-color: #000000;
-  border-radius: 10px;
-  color: white;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  margin-right: 30px;
-}
 
 i.mobile, div.mobile {
   display: none;
@@ -121,14 +112,15 @@ i.mobile, div.mobile {
 }
 
 .modalSpinner {
-  border: 1rem solid #eee8dc;
-  border-top: 16px solid #FF8500;
+  border: 1rem solid var(--spinner-body);
+  border-top: 16px solid var(--spinner-primary);
   border-radius: 50%;
   width: 120px;
   height: 120px;
   animation: loop 2s linear infinite;
 }
 
+/* Animatons for spinner */
 @keyframes loop {
   0% {
     transform: rotate(0deg);
@@ -138,6 +130,7 @@ i.mobile, div.mobile {
   }
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
   i.mobile, div.mobile {
     display: block;
@@ -146,10 +139,6 @@ i.mobile, div.mobile {
   i.save.mobile {
     margin-left: 30px;
   }
-
-  /* i.nomobile, div.nomobile {
-    display: none;
-  } */
 
   div.nomobile {
     display: none;
