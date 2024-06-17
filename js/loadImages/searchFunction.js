@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
         labelWrapper.appendChild(button);
       });
   
-      //Show the recent searches container
+      // Show the recent searches container
       if (searchHistory.length > 0) {
         labelWrapper.style.display = 'block';
       } else {
@@ -102,15 +102,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const noResultsContainer = document.querySelector('.no-results-container');
       const resultsSpan = document.getElementById("search__result");
 
-      // console.log(data)
-
       if (data.photos && data.photos.length > 0) {
         // Loop through the photos and distribute them across the three columns
         data.photos.forEach((photo, index) => {
         const img = document.createElement('img');
         img.src = photo.src.large;
         img.alt = photo.photographer;
-        img.setAttribute('data-photo-id', photo.id); // set id for ech img
+        img.setAttribute('data-photo-id', photo.id); // set id for each img
         img.addEventListener('click', function() {
           showModal(photo.src.original, photo.photographer, photo.id);
         });
@@ -188,7 +186,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     saveBookmark.onclick = function () {
-      // console.log('click')
       toggleSave(photoId);
     };
 
@@ -224,26 +221,24 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Downloads image of the url
-  function downloadImage(url, imageId) {
+  function downloadImage(url) {
     fetch(url)
       .then((response) => response.blob())
       .then((blob) => {
         // Extract filename from URL
         const filename = getFilenameFromUrl(url);
 
-        // Create a link element, set its href and download attributes, and simulate a click
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
         link.download = filename;
         link.click();
-        URL.revokeObjectURL(link.href); // Clean up
+        URL.revokeObjectURL(link.href);
       })
       .catch((error) => console.error("Error downloading the image:", error));
     }
 
   // Gets filename from the url and passes it as the download name
   function getFilenameFromUrl(url) {
-    // Extract filename from URL
     const urlParts = url.split("/");
     const lastSegment = urlParts[urlParts.length - 1];
     const filename = lastSegment.split("?")[0]; // Remove query params if any
@@ -269,7 +264,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   }
 
-  // Event listener for the "Load more" button
   document.getElementById('load-more-button').addEventListener('click', loadMoreImages);
 
   // Function to load more images
@@ -305,12 +299,9 @@ document.addEventListener('DOMContentLoaded', function() {
           document.getElementById(containerId).appendChild(img);
         });
 
-        // Show the Load More button
         loadMoreButton.style.display = 'block';
       } else {
-        // No more images to load
         document.getElementById('load-more-container').innerHTML = 'No more images to load';
-        // Hide the Load More button
         loadMoreButton.style.display = 'none';
       }
     })

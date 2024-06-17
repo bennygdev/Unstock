@@ -47,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(data => {
       displayImages(data.photos);
-      // console.log(data)
     })
     .catch(error => console.error('Error fetching curated images:', error))
     .finally(() => {
@@ -107,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     saveBookmark.onclick = function () {
-      // console.log('click')
       toggleSave(photoId);
     };
 
@@ -182,7 +180,6 @@ document.addEventListener('DOMContentLoaded', function() {
         loadMoreButton.style.display = 'block';
       } else {
         document.getElementById('load-more-container').innerHTML = 'No more images to load';
-        // Hide the Load More button
         loadMoreButton.style.display = 'none';
       }
     })

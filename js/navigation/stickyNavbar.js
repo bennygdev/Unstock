@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.querySelector(".main__navbar");
   const navbarHeight = navbar.offsetHeight;
   const logo = navbar.querySelector('.nav__logo');
-  const navLinks = navbar.querySelectorAll('.nav__link');
-  const searchBar = navbar.querySelector('.nav__search-container');
 
   let isSticky = false;
   let lastScrollTop = 0;

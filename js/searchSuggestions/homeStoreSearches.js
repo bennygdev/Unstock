@@ -11,7 +11,6 @@ function storeSearches(query) {
 document.querySelector('.nav__search-button').addEventListener('click', function() {
   const query = document.querySelector('.nav__search-bar').value;
     
-  // prevent blank search with if statement
   if (query) {
     storeSearches(query);
   }
@@ -22,7 +21,6 @@ document.querySelector('.nav__search-bar').addEventListener('keydown', function(
   if (event.key === 'Enter') {
     const query = document.querySelector('.nav__search-bar').value;
 
-    // prevent blank search with if statement
     if (query) {
       storeSearches(query);
     }
@@ -33,7 +31,6 @@ document.querySelector('.nav__search-bar').addEventListener('keydown', function(
 document.querySelector('.hero__search-button').addEventListener('click', function() {
   const query = document.querySelector('.hero__search-bar').value;
     
-  // prevent blank search with if statement
   if (query) {
     storeSearches(query);
   }
@@ -44,7 +41,6 @@ document.querySelector('.hero__search-bar').addEventListener('keydown', function
   if (event.key === 'Enter') {
     const query = document.querySelector('.hero__search-bar').value;
 
-    // prevent blank search with if statement
     if (query) {
       storeSearches(query);
     }
@@ -55,7 +51,6 @@ document.querySelector('.hero__search-bar').addEventListener('keydown', function
 document.querySelector('.footer__search-button').addEventListener('click', function() {
   const query = document.querySelector('.footer__search-bar').value;
   
-  // prevent blank search with if statement
   if (query) {
     storeSearches(query);
   }
@@ -66,7 +61,6 @@ document.querySelector('.footer__search-bar').addEventListener('keydown', functi
   if (event.key === 'Enter') {
     const query = document.querySelector('.footer__search-bar').value;
 
-    // prevent blank search with if statement
     if (query) {
       storeSearches(query);
     }

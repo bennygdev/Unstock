@@ -130,7 +130,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     saveBookmark.onclick = function () {
-      // console.log('click')
       toggleSave(photoId);
     };
 
@@ -169,34 +168,30 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Downloads image of the url
-  function downloadImage(url, imageId) {
+  function downloadImage(url) {
     fetch(url)
       .then((response) => response.blob())
       .then((blob) => {
         // Extract filename from URL
         const filename = getFilenameFromUrl(url);
 
-        // Create a link element, set its href and download attributes, and simulate a click
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
         link.download = filename;
         link.click();
-        URL.revokeObjectURL(link.href); // Clean up
+        URL.revokeObjectURL(link.href);
       })
       .catch((error) => console.error("Error downloading the image:", error));
     }
 
   // Gets filename from the url and passes it as the download name
   function getFilenameFromUrl(url) {
-    // Extract filename from URL
     const urlParts = url.split("/");
     const lastSegment = urlParts[urlParts.length - 1];
     const filename = lastSegment.split("?")[0]; // Remove query params if any
     return filename;
   }
 
-
-  // Get the modal element
   const modal = document.getElementById('image__modal');
 
   // Get the <span> element that closes the modal
