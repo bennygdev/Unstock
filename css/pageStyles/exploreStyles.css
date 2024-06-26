@@ -346,7 +346,8 @@ body {
 
 @media (max-width: 530px) {
   .explore__container {
-    width: 400px;
+    /* width: 400px; */
+    width: 350px;
     height: 225px;
     margin-left: 35px;
     margin-right: 35px;
