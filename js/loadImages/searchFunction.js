@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
   const apiKey = 'gY7YL3TYC3zwSfPTln6WPnaKS4psOajcnKlg3a7HJlOj5NfXpzoFFoKJ';
 
@@ -103,24 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const resultsSpan = document.getElementById("search__result");
 
       if (data.photos && data.photos.length > 0) {
-        // Loop through the photos and distribute them across the three columns
-        data.photos.forEach((photo, index) => {
-        const img = document.createElement('img');
-        img.src = photo.src.large;
-        img.alt = photo.photographer;
-        img.setAttribute('data-photo-id', photo.id); // set id for each img
-        img.addEventListener('click', function() {
-          showModal(photo.src.original, photo.photographer, photo.id);
-        });
-
-          if (index % 3 === 0) {
-            document.getElementById('image-container-1').appendChild(img);
-          } else if (index % 3 === 1) {
-            document.getElementById('image-container-2').appendChild(img);
-          } else {
-            document.getElementById('image-container-3').appendChild(img);
-          }
-        });
+        displayImages(data.photos)
 
         loadMoreButton.style.display = 'block';
         resultsFor.style.display = 'block';
@@ -155,6 +137,25 @@ document.addEventListener('DOMContentLoaded', function() {
       })
   }
 
+  // Display images
+  function displayImages(photos) {
+    const columns = document.querySelectorAll('.column');
+
+    // Loop through the photos and distribute them across the three columns
+    photos.forEach((photo, index) => {
+      const img = document.createElement('img');
+      img.src = photo.src.large;
+      img.alt = photo.photographer;
+      img.setAttribute('data-photo-id', photo.id); // set id for each img
+      img.addEventListener('click', function() {
+        showModal(photo.src.original, photo.photographer, photo.id);
+      });
+
+      const columnIndex = index % columns.length;
+      columns[columnIndex].appendChild(img);
+    });
+  }
+
   // Function to show the modal with the clicked image
   function showModal(imageSrc, photographerName, photoId) {
     const modal = document.getElementById("image__modal");
@@ -168,6 +169,8 @@ document.addEventListener('DOMContentLoaded', function() {
     modalImg.style.display = 'none';
 
     modalImg.src = imageSrc;
+    modalImg.setAttribute('data-photo-id', photoId);
+
     photographerElement.textContent = `By ${photographerName}`;
     photographerElementBottom.textContent = `By ${photographerName}`;
 
@@ -225,9 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch(url)
       .then((response) => response.blob())
       .then((blob) => {
-        // Extract filename from URL
         const filename = getFilenameFromUrl(url);
-
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
         link.download = filename;
@@ -240,9 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Gets filename from the url and passes it as the download name
   function getFilenameFromUrl(url) {
     const urlParts = url.split("/");
-    const lastSegment = urlParts[urlParts.length - 1];
-    const filename = lastSegment.split("?")[0]; // Remove query params if any
-    return filename;
+    return urlParts[urlParts.length - 1];
   }
 
 
@@ -282,22 +281,8 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(data => {
       if (data.photos && data.photos.length > 0) {
-        data.photos.forEach((photo, index) => {
-          // Create and append image elements to the appropriate container
-          const img = document.createElement('img');
-          img.src = photo.src.large;
-          img.alt = photo.photographer;
-          img.id = `image-${index}`; // Set a unique ID for each image
-          img.addEventListener('click', function() {
-            showModal(photo.src.original, photo.photographer);
-          });
-
-          // Determine which column to append the image to
-          const columnIndex = (index + 1) % 3;
-          const containerId = `image-container-${columnIndex === 0 ? 3 : columnIndex}`;
-
-          document.getElementById(containerId).appendChild(img);
-        });
+        // console.log(data)
+        displayImages(data.photos)
 
         loadMoreButton.style.display = 'block';
       } else {

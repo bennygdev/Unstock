@@ -43,34 +43,33 @@ document.addEventListener('DOMContentLoaded', function() {
       noResultsContainer.style.display = 'none';
       imageGalleryTitle.style.display = 'block';
 
-      // Display saved images
-      savedPhotos.forEach((photoId, index) => {
-        fetchPhoto(photoId)
-          .then(photo => {
-            const img = document.createElement('img');
-            img.src = photo.src.large;
-            img.alt = photo.photographer;
-            img.setAttribute('data-photo-id', photo.id);
-            img.addEventListener('click', function() {
-              showModal(photo.src.original, photo.photographer, photo.id);
-            });
-
-            // Determine which column to append the image to using modulo based on localstorage index
-            const columnIndex = index % 3;
-            if (columnIndex === 0) {
-              container1.appendChild(img);
-            } else if (columnIndex === 1) {
-              container2.appendChild(img);
-            } else {
-              container3.appendChild(img);
-            }
-          })
-          .catch(error => console.error('Error fetching saved photo:', error))
-          .finally(() => {
-            hideSpinner();
-          })
-      });
+      displayImages(savedPhotos)
     }
+  }
+
+  function displayImages(photos) {
+    const columns = document.querySelectorAll('.column');
+
+    // Display saved images
+    photos.forEach((photoId, index) => {
+      fetchPhoto(photoId)
+        .then(photo => {
+          const img = document.createElement('img');
+          img.src = photo.src.large;
+          img.alt = photo.photographer;
+          img.setAttribute('data-photo-id', photo.id);
+          img.addEventListener('click', function() {
+            showModal(photo.src.original, photo.photographer, photo.id);
+          });
+          
+          const columnIndex = index % columns.length;
+          columns[columnIndex].appendChild(img);
+        })
+        .catch(error => console.error('Error fetching saved photo:', error))
+        .finally(() => {
+          hideSpinner();
+        })
+    });
   }
 
   function fetchPhoto(photoId) {
@@ -81,12 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'Authorization': apiKey
       }
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
       return {
         id: data.id,
@@ -112,6 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
     modalImg.style.display = 'none';
 
     modalImg.src = imageSrc;
+    modalImg.setAttribute('data-photo-id', photoId);
+
     photographerElement.textContent = `By ${photographerName}`;
     photographerElementBottom.textContent = `By ${photographerName}`;
 
@@ -172,9 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch(url)
       .then((response) => response.blob())
       .then((blob) => {
-        // Extract filename from URL
         const filename = getFilenameFromUrl(url);
-
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
         link.download = filename;
@@ -187,9 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Gets filename from the url and passes it as the download name
   function getFilenameFromUrl(url) {
     const urlParts = url.split("/");
-    const lastSegment = urlParts[urlParts.length - 1];
-    const filename = lastSegment.split("?")[0]; // Remove query params if any
-    return filename;
+    return urlParts[urlParts.length - 1];
   }
 
   const modal = document.getElementById('image__modal');
