@@ -32,6 +32,12 @@
   height: auto;
   margin-bottom: 10px;
   cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.column img:hover {
+  filter: brightness(0.8);
+  transition: 0.2s ease;
 }
 
 .no-results-container {

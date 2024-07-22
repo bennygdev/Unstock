@@ -625,6 +625,12 @@ main {
   height: inherit;
   display: flex;
   align-items: center;
+  transition: 0.2s ease;
+}
+
+.creatorForm__image:hover {
+  transform: scale(1.03);
+  transition: 0.3s ease;
 }
 
 .creatorForm__name {
