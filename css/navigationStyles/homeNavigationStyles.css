@@ -41,6 +41,12 @@ nav {
   text-decoration: none;
   font-weight: 700;
   color: var(--primary-white);
+  transition: 0.2s ease;
+}
+
+.sticky .nav__link:hover {
+  color: var(--primary-orange);
+  transition: 0.2s ease;
 }
 
 .nav__search-container {

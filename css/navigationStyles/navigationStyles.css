@@ -41,6 +41,12 @@ nav {
   text-decoration: none;
   font-weight: 700;
   color: var(--primary-black);
+  transition: 0.2s ease;
+}
+
+.nav__link:hover {
+  color: var(--primary-orange);
+  transition: 0.2s ease;
 }
 
 .nav__link--active {
